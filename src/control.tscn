@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://wi8nqwqpg1g3"]
 
 [ext_resource type="Script" path="res://scripts/Control.gd" id="1_7k8s6"]
-[ext_resource type="Texture2D" uid="uid://d2rugflburhvu" path="res://assets/graphics/BezelsRus.png" id="2_urcdp"]
+[ext_resource type="Texture2D" uid="uid://cxakaqqwrnd3x" path="res://assets/graphics/emusRus.png" id="2_revo7"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="3_8i5nj"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="4_w1jbr"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="5_r2fa5"]
@@ -172,7 +172,7 @@ text = "csv/games.csv"
 
 [node name="BezelsRus" type="Sprite2D" parent="."]
 position = Vector2(547, 85)
-texture = ExtResource("2_urcdp")
+texture = ExtResource("2_revo7")
 
 [node name="Button_Processed" type="Button" parent="."]
 layout_mode = 0
