@@ -6,6 +6,9 @@ Add Bezels to your games in ES-DE and other emulators.
 
 ## TODO
 
+* [ ] Backup/Restore emulator configs
+* [ ] Backup/Restore cores
+* [ ] Backup/Restore favourites
 * [ ] Per emulated system to match installed roms in gameslist.xml
 * [ ] Per emulated system all roms/games even if not there
 * [ ] Bezels per game
@@ -17,6 +20,3 @@ Add Bezels to your games in ES-DE and other emulators.
 * [ ] By System Android, PC Windows and Linux, macs
 * [ ] Switch/Choose bezel sets online or local
 * [ ] Batch Convert dimension/sizes?
-* [ ] Backup/Restore emulator configs
-* [ ] Backup/Restore cores
-* [ ] Backup/Restore favourites
