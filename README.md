@@ -1,6 +1,6 @@
 # bezelsRus
 
-![All You R Bezels are Belonging yto Us](src/assets/graphics/BezelsRus.png)
+![All You R Bezels are Belonging yto Us](src/assets/graphics/emusRus.png)
 
 Add Bezels to your games in ES-DE and other emulators.
 
