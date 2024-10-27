@@ -1,7 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://wi8nqwqpg1g3"]
+[gd_scene load_steps=16 format=3 uid="uid://wi8nqwqpg1g3"]
 
 [ext_resource type="Script" path="res://scripts/Control.gd" id="1_7k8s6"]
 [ext_resource type="Texture2D" uid="uid://d2rugflburhvu" path="res://assets/graphics/BezelsRus.png" id="2_urcdp"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="3_8i5nj"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="4_w1jbr"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="5_r2fa5"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="6_rc576"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="7_abiah"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="8_2up71"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="9_ajmvf"]
+
+[sub_resource type="Resource" id="Resource_l868x"]
+resource_local_to_scene = true
+script = ExtResource("4_w1jbr")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_41el4"]
+resource_local_to_scene = true
+script = ExtResource("5_r2fa5")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_66sq4"]
+resource_local_to_scene = true
+script = ExtResource("6_rc576")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_uykiu"]
+resource_local_to_scene = true
+script = ExtResource("7_abiah")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_djuwc"]
+resource_local_to_scene = true
+script = ExtResource("8_2up71")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_8nuof"]
+resource_local_to_scene = true
+script = ExtResource("9_ajmvf")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,6 +99,22 @@ offset_right = 1036.0
 offset_bottom = 252.0
 text = "Open"
 
+[node name="Button_Load2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 416.0
+offset_right = 1013.0
+offset_bottom = 482.0
+text = "RCLONE"
+
+[node name="Button_Load3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 510.0
+offset_right = 1015.0
+offset_bottom = 576.0
+text = "COPY"
+
 [node name="Button_Process" type="Button" parent="."]
 layout_mode = 0
 offset_left = 521.0
@@ -39,6 +122,14 @@ offset_top = 291.0
 offset_right = 701.0
 offset_bottom = 362.0
 text = "Process"
+
+[node name="Button_Process2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 488.0
+offset_right = 701.0
+offset_bottom = 559.0
+text = "Process_test"
 
 [node name="LineEdit_Path" type="LineEdit" parent="."]
 layout_mode = 0
@@ -58,27 +149,18 @@ text = "Path to csv file"
 
 [node name="Label_Status" type="Label" parent="."]
 layout_mode = 0
-offset_left = 246.0
-offset_top = 616.0
-offset_right = 388.0
-offset_bottom = 645.0
+offset_left = 135.0
+offset_top = 548.0
+offset_right = 277.0
+offset_bottom = 577.0
 text = "Status:
 "
 
-[node name="Label_Current" type="Label" parent="."]
+[node name="Label_Current" type="Label" parent="Label_Status"]
 layout_mode = 0
-offset_left = 321.0
-offset_top = 616.0
-offset_right = 619.0
-offset_bottom = 648.0
-
-[node name="Label_Processed" type="Label" parent="."]
-layout_mode = 0
-offset_left = 237.0
-offset_top = 284.0
-offset_right = 412.0
-offset_bottom = 338.0
-text = "Path to processed files"
+offset_left = 75.0
+offset_right = 373.0
+offset_bottom = 32.0
 
 [node name="Button_Csv" type="Button" parent="."]
 layout_mode = 0
@@ -88,19 +170,130 @@ offset_right = 214.0
 offset_bottom = 347.0
 text = "csv/games.csv"
 
-[node name="Button_Processed" type="Button" parent="."]
-layout_mode = 0
-offset_left = 240.0
-offset_top = 310.0
-offset_right = 409.0
-offset_bottom = 351.0
-
 [node name="BezelsRus" type="Sprite2D" parent="."]
 position = Vector2(547, 85)
 texture = ExtResource("2_urcdp")
 
+[node name="Button_Processed" type="Button" parent="."]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 306.0
+offset_right = 418.0
+offset_bottom = 347.0
+
+[node name="Label_Processed" type="Label" parent="Button_Processed"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -26.0
+offset_right = 174.0
+offset_bottom = 3.0
+text = "Path to processed files"
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 707.0
+offset_top = 254.0
+offset_right = 1151.0
+offset_bottom = 647.0
+bbcode_enabled = true
+text = "[code]bob[/code]
+[code]
+ls -ltr[/code]
+
+[font_size=27]Core List[/font_size]
+
+[url=https://docs.libretro.com/meta/core-list/]RetroArch - Core List[/url]
+
+[table=3]
+[cell]Core[/cell][cell]System/Machine[/cell][cell]Notes[/cell]
+[cell][url=https://docs.libretro.com/library/2048/]2048[/url][/cell][cell]Game[/cell][cell]A port of the popular puzzle game 2048 to libretro[/cell]
+[cell]3D Engine[/cell][cell]-[/cell][cell]This is a test core; it demonstrates how to create a hardware-rendered core in a libretro context[/cell]
+[cell][url=https://docs.libretro.com/library/opera/]4DO[/url][/cell][cell]3DO[/cell][cell][/cell]
+[cell]a5200[/cell][cell]Atari 5200[/cell][cell][/cell]
+[cell]Anarch[/cell][cell]Game[/cell][cell]A port of Anarch, 90s-style Doom clone shooter game[/cell]
+[cell]Arduous[/cell][cell]Arduboy[/cell][cell]A emulator for Arduboy, a handheld game console with open source software, based on the Arduino hardware platform[/cell]
+[cell][url=https://docs.libretro.com/library/atari800/]Atari800[/url][/cell][cell]Atari 5200[/cell][cell][/cell]
+[cell]Beetle bsnes[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
+[cell][url=https://docs.libretro.com/library/beetle_cygne/]Beetle Cygne[/url][/cell][cell]Bandai WonderSwan/Color[/cell][cell][/cell]
+[cell]Beetle GBA[/cell][cell]Game Boy Advance[/cell][cell][/cell]
+[cell]Beetle Lynx[/cell][cell]Atari Lynx[/cell][cell][/cell]
+[cell]Beetle NeoPop[/cell][cell]Neo Geo Pocket/Color[/cell][cell][/cell]
+[cell]Beetle PC-FX[/cell][cell]NEC PC-FX[/cell][cell][/cell]
+[cell]Beetle PCE[/cell][cell]NEC PC Engine/SuperGrafx/CD[/cell][cell][/cell]
+[cell]Beetle PCE FAST[/cell][cell]NEC PC Engine/CD[/cell][cell][/cell]
+[cell]Beetle PSX[/cell][cell]Sony PlayStation[/cell][cell][/cell]
+[cell]Beetle PSX HW[/cell][cell]Sony PlayStation[/cell][cell]A fork of Mednafen's PSX providing GPU-accelerated renderers for OpenGL and Vulkan[/cell]
+[cell]Beetle Saturn[/cell][cell]Sega Saturn[/cell][cell][/cell]
+[cell]Beetle SuperGrafx[/cell][cell]NEC PC Engine/SuperGrafx[/cell][cell][/cell]
+[cell]Beetle Supafaust[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
+[cell]Beetle VB[/cell][cell]Nintendo Virtual Boy[/cell][cell][/cell]
+[cell]BK[/cell][cell]BK-0010/BK-0011(M)/Terak 8510-a[/cell][cell]A port of the PDP11 emulator to libretro. This core emulates the PDP-11/03 platform.[/cell]
+[cell]BlastEm[/cell][cell]Sega Genesis (Mega Drive)[/cell][cell][/cell]
+[cell]blueMSX[/cell][cell]MSX/SVI/ColecoVision/SG-1000[/cell][cell][/cell]
+[cell]bnes[/cell][cell]Nintendo NES/Famicom[/cell][cell][/cell]
+[cell]boom 3[/cell][cell]Game engine[/cell][cell]A port of the Doom 3 engine to libretro. There is a separate core for it's expansion pack Resurrection of Evil.[/cell]
+[cell]boom 3 xp[/cell][cell]Game engine[/cell][cell]See boom 3 note[/cell]
+[cell]bsnes[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
+[cell]bsnes 2014 Accuracy[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
+[cell]bsnes 2014 Balanced[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
+[cell]bsnes 2014 Performance[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
+[/table]"
+script = ExtResource("3_8i5nj")
+markdown_text = "`bob`
+```
+ls -ltr
+```
+
+## Core List
+
+[RetroArch - Core List](https://docs.libretro.com/meta/core-list/)
+
+| Core                      | System/Machine         | Notes              |
+| :---                      | :---                   | :---               |
+| [2048](https://docs.libretro.com/library/2048/)                      | Game                   | A port of the popular puzzle game 2048 to libretro |
+| 3D Engine                 | -                      | This is a test core; it demonstrates how to create a hardware-rendered core in a libretro context |
+| [4DO](https://docs.libretro.com/library/opera/)                       | 3DO                    |                    |
+| a5200                     | Atari 5200             |                    |
+| Anarch                    | Game                   | A port of Anarch, 90s-style Doom clone shooter game |
+| Arduous                   | Arduboy                | A emulator for Arduboy, a handheld game console with open source software, based on the Arduino hardware platform |
+| [Atari800](https://docs.libretro.com/library/atari800/)                  | Atari 5200             |                    |
+| Beetle bsnes              | Nintendo SNES/SFC      |                    |
+| [Beetle Cygne](https://docs.libretro.com/library/beetle_cygne/)              | Bandai WonderSwan/Color |                   |
+| Beetle GBA                | Game Boy Advance       |                    |
+| Beetle Lynx               | Atari Lynx             |                    |
+| Beetle NeoPop             | Neo Geo Pocket/Color   |                    |
+| Beetle PC-FX              | NEC PC-FX              |                    |
+| Beetle PCE                | NEC PC Engine/SuperGrafx/CD |               |
+| Beetle PCE FAST           | NEC PC Engine/CD       |                    |
+| Beetle PSX                | Sony PlayStation       |                    |
+| Beetle PSX HW             | Sony PlayStation       | A fork of Mednafen's PSX providing GPU-accelerated renderers for OpenGL and Vulkan |
+| Beetle Saturn             | Sega Saturn            |                    |
+| Beetle SuperGrafx         | NEC PC Engine/SuperGrafx |                  |
+| Beetle Supafaust          | Nintendo SNES/SFC      |                    |
+| Beetle VB                 | Nintendo Virtual Boy   |                    |
+| BK                        | BK-0010/BK-0011(M)/Terak 8510-a | A port of the PDP11 emulator to libretro. This core emulates the PDP-11/03 platform. |
+| BlastEm                   | Sega Genesis (Mega Drive) |                 |
+| blueMSX                   | MSX/SVI/ColecoVision/SG-1000 |              |
+| bnes                      | Nintendo NES/Famicom   |                    |
+| boom 3                    | Game engine            | A port of the Doom 3 engine to libretro. There is a separate core for it's expansion pack Resurrection of Evil. |
+| boom 3 xp                 | Game engine            | See boom 3 note  |
+| bsnes                     | Nintendo SNES/SFC      |                    |
+| bsnes 2014 Accuracy       | Nintendo SNES/SFC      |                    |
+| bsnes 2014 Balanced       | Nintendo SNES/SFC      |                    |
+| bsnes 2014 Performance    | Nintendo SNES/SFC      |                    |"
+h1 = SubResource("Resource_l868x")
+h2 = SubResource("Resource_41el4")
+h3 = SubResource("Resource_66sq4")
+h4 = SubResource("Resource_uykiu")
+h5 = SubResource("Resource_djuwc")
+h6 = SubResource("Resource_8nuof")
+
 [connection signal="file_selected" from="FileDialog_Load" to="." method="_on_file_dialog_load_file_selected"]
 [connection signal="pressed" from="Button_Load" to="." method="_on_button_load_pressed"]
+[connection signal="pressed" from="Button_Load2" to="." method="_on_button_load_2_pressed"]
+[connection signal="pressed" from="Button_Load3" to="." method="_on_button_load_3_pressed"]
 [connection signal="pressed" from="Button_Process" to="." method="_on_button_process_pressed"]
+[connection signal="pressed" from="Button_Process2" to="." method="_on_button_process_2_pressed"]
 [connection signal="pressed" from="Button_Csv" to="." method="_on_button_csv_pressed"]
 [connection signal="pressed" from="Button_Processed" to="." method="_on_button_processed_pressed"]

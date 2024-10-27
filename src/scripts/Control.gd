@@ -2,7 +2,11 @@ extends Control
 
 @export var config_dir = "test/"
 
+# HTTPRequest node
+@onready var http_request: HTTPRequest = $HTTPRequest
+
 func _ready():
+
 	$Button_Processed.text = config_dir
 
 # Function to extract paths and names from XML
@@ -70,12 +74,12 @@ func save_to_csv_and_check_files(games: Array, csv_file: String, base_path: Stri
 	
 	file.close()
 	$Button_Csv.text = csv_file
-	$Label_Current.text += str(games.size()) + " files processed"
+	$Label_Status/Label_Current.text += str(games.size()) + " files processed"
 #	print("Data saved to %s" % csv_file)
 #	print ("%i files processed" % games.size())
 
 func _on_button_process_pressed():
-	$Label_Current.text="";
+	$Label_Status/Label_Current.text=""
 	var args = OS.get_cmdline_args()
 	var xml_file = "gamelist.xml"
 	var csv_file = "csv/games.csv"
@@ -104,3 +108,33 @@ func _on_button_csv_pressed():
 
 func _on_button_processed_pressed():
 	OS.shell_open(config_dir)
+
+
+func _on_button_process_2_pressed():
+	pass # Replace with function body.
+
+
+func _on_http_request_request_completed(result, response_code, headers, body):
+	if response_code == 200:
+		var response = $JSON.parse(body.get_string_from_utf8())
+		if response.error == OK:
+			var game_info = response.result
+			print(game_info)
+		else:
+			print("Error parsing JSON response")
+	else:
+		print("HTTP request failed with response code: ", response_code)
+
+
+func _on_button_load_2_pressed() -> void:
+	OS.execute("rclone", ["--fast-list", "--ignore-checksum",  "config", "create", "RetroDECKS", "drive"])
+
+
+func _on_button_load_3_pressed() -> void:
+	var out: Array
+	#var param: Array = ["-v", "sync", "--copy-links", "/home/tim/bin/", "RetroDECKS:/bob"]
+	var param: Array = ["-v", "copy", "--copy-links", "/home/tim/bin/", "RetroDECKS:/bob"]
+	OS.execute("rclone", param, out, true)
+	#print (param)
+	print (str(out[0]))
+	
