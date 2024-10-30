@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://cotlnwk1de3o2"]
+
+[ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
+[ext_resource type="Texture2D" uid="uid://b2ju80qr5hpwd" path="res://icon.svg" id="2_m87si"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y87yy")
+current_tab = 2
+
+[node name="MAIN" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Button" type="Button" parent="TabContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACKUPS"
+icon = ExtResource("2_m87si")
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "SETUP
+CONFIG"
+icon = ExtResource("2_m87si")
+
+[node name="Button2" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "TEST
+CONNECTION"
+icon = ExtResource("2_m87si")
+
+[node name="Button3" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "BACKUP"
+icon = ExtResource("2_m87si")
+
+[node name="Button4" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "RESTORE
+rclone config --config=rclone_emu.conf update emusRus_GoogleDrive"
+icon = ExtResource("2_m87si")
