@@ -1,4 +1,4 @@
-# bezelsRus
+# emusRus
 
 ![All You R Bezels are Belonging yto Us](src/assets/graphics/emusRus.png)
 
