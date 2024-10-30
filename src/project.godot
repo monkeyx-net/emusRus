@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Auto Bezel"
-run/main_scene="res://control.tscn"
+config/name="EMUSRUS"
+run/main_scene="res://tabs.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://assets/graphics/emusRus.png"
 config/icon="res://icon.svg"
 
 [editor_plugins]
