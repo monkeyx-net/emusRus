@@ -68,5 +68,3 @@ layout_mode = 2
 text = "RESTORE
 rclone config --config=rclone_emu.conf update emusRus_GoogleDrive"
 icon = ExtResource("2_m87si")
-
-[connection signal="pressed" from="TabContainer/VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
