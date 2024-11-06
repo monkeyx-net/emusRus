@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=4 format=3 uid="uid://cotlnwk1de3o2"]
 
+[ext_resource type="Script" path="res://tabs.gd" id="1_dai08"]
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
 [ext_resource type="Texture2D" uid="uid://b2ju80qr5hpwd" path="res://icon.svg" id="2_m87si"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dai08")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -66,3 +68,5 @@ layout_mode = 2
 text = "RESTORE
 rclone config --config=rclone_emu.conf update emusRus_GoogleDrive"
 icon = ExtResource("2_m87si")
+
+[connection signal="pressed" from="TabContainer/VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
