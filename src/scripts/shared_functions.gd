@@ -38,13 +38,10 @@ func array_to_string(arr: Array) -> String:
 	return text
 
 func execute_command(command: String, parameters: Array, console: bool) -> Dictionary:
-
 	var output = []
 	var exit_code = OS.execute(command, parameters, output, console) ## add if exit == 0 etc
 	result["output"] = array_to_string(output)
-	result["exit_code"] = exit_code
-	print (exit_code)
-	
+	result["exit_code"] = exit_code	
 	return result
 
 func run_command_in_thread(command: String, paramaters: Array, console: bool) -> Dictionary:
@@ -53,10 +50,4 @@ func run_command_in_thread(command: String, paramaters: Array, console: bool) ->
 	while thread.is_alive():
 		await get_tree().process_frame
 	emit_signal("command_finished", result)
-
 	return thread.wait_to_finish()
-	
-#func run_thread_command(command: String, parameters: Array, console: bool) -> Dictionary:
-	#var log_result = await run_command_in_thread(command, parameters, console)
-	#return log_result
-	
