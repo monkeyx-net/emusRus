@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/graphics/emusRus_icon.png"
 config/icon="res://assets/graphics/emusRus_icon.png"
 
+[autoload]
+
+SharedFunctions="*res://scripts/shared_functions.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/markdownlabel/plugin.cfg")
