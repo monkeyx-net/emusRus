@@ -13,8 +13,8 @@ config_version=5
 config/name="EMUSRUS"
 run/main_scene="res://tabs.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-boot_splash/image="res://assets/graphics/emusRus.png"
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/graphics/emusRus_icon.png"
+config/icon="res://assets/graphics/emusRus_icon.png"
 
 [editor_plugins]
 
