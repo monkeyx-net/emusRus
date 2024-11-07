@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=9 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Script" path="res://tabs.gd" id="1_dai08"]
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
 [ext_resource type="Texture2D" uid="uid://b2ju80qr5hpwd" path="res://icon.svg" id="2_m87si"]
+[ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_2pk67"]
+[ext_resource type="Texture2D" uid="uid://b04pju0x7yk7n" path="res://assets/graphics/systems/retroarch _inv.svg" id="3_efpsm"]
+[ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="4_svoj6"]
+[ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]
+[ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="8_7470p"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,60 +16,129 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y87yy")
 script = ExtResource("1_dai08")
 
 [node name="TabContainer" type="TabContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_y87yy")
 current_tab = 2
+script = ExtResource("3_2pk67")
 
-[node name="MAIN" type="MarginContainer" parent="TabContainer"]
+[node name="START" type="MarginContainer" parent="TabContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="RetroarchInv" type="Sprite2D" parent="TabContainer/START"]
+position = Vector2(575, 278)
+scale = Vector2(0.241875, 0.216875)
+texture = ExtResource("3_efpsm")
+
+[node name="Org_esDe_frontend" type="Sprite2D" parent="TabContainer/START"]
+position = Vector2(238, 273)
+scale = Vector2(0.365702, 0.256198)
+texture = ExtResource("4_svoj6")
+
+[node name="Label" type="Label" parent="TabContainer/START"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "WELCOME
+DETECTED SUPPORTED  SYSTEMS BELOW
+- MANUAL FIX
+- SELECT ONE/BOTH
+- LINK/DOWNLOAD
+
+NONE INSTALLED
+LINKS OR DOWNLOAD?"
 
 [node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer"]
+[node name="BACKUPS" type="VBoxContainer" parent="TabContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Button" type="Button" parent="TabContainer/VBoxContainer"]
+[node name="backups_button" type="Button" parent="TabContainer/BACKUPS"]
+unique_name_in_owner = true
 layout_mode = 2
+toggle_mode = true
 text = "BACKUPS"
-icon = ExtResource("2_m87si")
+icon = ExtResource("6_fuskr")
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/VBoxContainer"]
+[node name="backups_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+[node name="backup_1" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "SETUP
-CONFIG"
+CONFIG
+Do not show other buttons uness done."
 icon = ExtResource("2_m87si")
 
-[node name="Button2" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+[node name="Button2" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
 layout_mode = 2
 text = "TEST
 CONNECTION"
 icon = ExtResource("2_m87si")
 
-[node name="Button3" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+[node name="Button3" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
 layout_mode = 2
 text = "BACKUP"
 icon = ExtResource("2_m87si")
 
-[node name="Button4" type="Button" parent="TabContainer/VBoxContainer/GridContainer"]
+[node name="restore_button" type="Button" parent="TabContainer/BACKUPS"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "RESTORE"
+icon = ExtResource("8_7470p")
+
+[node name="restore_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
+layout_mode = 2
+text = "SETUP
+CONFIG"
+icon = ExtResource("2_m87si")
+
+[node name="Button2" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
+layout_mode = 2
+text = "TEST
+CONNECTION"
+icon = ExtResource("2_m87si")
+
+[node name="Button3" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
+layout_mode = 2
+text = "BACKUP"
+icon = ExtResource("2_m87si")
+
+[node name="Button4" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
 layout_mode = 2
 text = "RESTORE
 rclone config --config=rclone_emu.conf update emusRus_GoogleDrive"
 icon = ExtResource("2_m87si")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/BACKUPS"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "bob"

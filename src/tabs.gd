@@ -9,11 +9,6 @@ func _ready() -> void:
 	print("Favorite games saved to favorites.xml.")
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func find_favorites() -> Array:
 	var favorite_games = []
 	

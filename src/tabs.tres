@@ -1,7 +1,18 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cclle0dpqo4th"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cclle0dpqo4th"]
+
+[sub_resource type="Gradient" id="Gradient_g1le3"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5jdrv"]
+gradient = SubResource("Gradient_g1le3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7r07"]
+texture = SubResource("GradientTexture2D_5jdrv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqrel"]
 
 [resource]
+Button/constants/icon_max_width = 128
+Button/styles/hover = SubResource("StyleBoxTexture_u7r07")
 TabContainer/font_sizes/font_size = 32
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_yqrel")
