@@ -91,7 +91,8 @@ CONFIG
 Do not show other buttons uness done."
 icon = ExtResource("2_m87si")
 
-[node name="Button2" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
+[node name="backup_2" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "TEST
 CONNECTION"
