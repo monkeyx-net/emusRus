@@ -45,19 +45,17 @@ func parse_favorites(xml_path: String) -> Array:
 	if xml.open(xml_path) == OK:
 		while xml.read() == OK:
 			if xml.get_node_type() == XMLParser.NODE_ELEMENT and xml.get_node_name() == "game":
-				var game_data = ""
+				var game_data = "\n"
 				var is_favorite = false
 				while xml.read() == OK and not (xml.get_node_type() == XMLParser.NODE_ELEMENT_END and xml.get_node_name() == "game"):
 					if xml.get_node_type() == XMLParser.NODE_ELEMENT:
 						var element_name = xml.get_node_name()
-						xml.read()  # Move to the data within the tag
-
+						xml.read()
 						if element_name == "favorite" and xml.get_node_data().strip_edges() == "true":
 							is_favorite = true
-
 						# Avoid redundant <game> tags in game_data
-						if element_name != "game":
-							game_data += "<%s>%s</%s>" % [element_name, xml.get_node_data(), element_name]
+						if element_name != "game" or element_name != "desc":
+							game_data += "\t<%s>%s</%s>" % [element_name, xml.get_node_data(), element_name] + "\n"
 
 				if is_favorite:
 					favorites.append("<game>" + game_data + "</game>")
