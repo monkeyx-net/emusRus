@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=10 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Script" path="res://tabs.gd" id="1_dai08"]
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_2pk67"]
 [ext_resource type="Texture2D" uid="uid://b04pju0x7yk7n" path="res://assets/graphics/systems/retroarch _inv.svg" id="3_efpsm"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="4_svoj6"]
+[ext_resource type="Texture2D" uid="uid://bwbd1jll423o8" path="res://assets/graphics/systems/retrodeck.svg" id="5_g8oh4"]
 [ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]
 [ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="8_7470p"]
 
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_y87yy")
 script = ExtResource("1_dai08")
 
@@ -41,6 +43,11 @@ metadata/_tab_index = 0
 position = Vector2(575, 278)
 scale = Vector2(0.241875, 0.216875)
 texture = ExtResource("3_efpsm")
+
+[node name="Retrodeck" type="Sprite2D" parent="TabContainer/START"]
+position = Vector2(253, 462)
+scale = Vector2(0.601562, 0.601562)
+texture = ExtResource("5_g8oh4")
 
 [node name="Org_esDe_frontend" type="Sprite2D" parent="TabContainer/START"]
 position = Vector2(238, 273)
@@ -140,6 +147,6 @@ rclone config --config=rclone_emu.conf update emusRus_GoogleDrive"
 icon = ExtResource("2_m87si")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/BACKUPS"]
-custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+size_flags_vertical = 3
 text = "bob"
