@@ -20,6 +20,11 @@ config/icon="res://assets/graphics/emusRus_icon.png"
 
 SharedFunctions="*res://scripts/shared_functions.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/markdownlabel/plugin.cfg")
