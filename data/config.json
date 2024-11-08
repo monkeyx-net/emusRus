@@ -1,0 +1,120 @@
+{
+	"abxy_button_swap": {
+		"citra": true,
+		"gb": true,
+		"gba": true,
+		"gbc": true,
+		"n64": true,
+		"snes": true
+	},
+	"ask_to_exit": {
+		"citra": false,
+		"dolphin": false,
+		"duckstation": false,
+		"pcsx2": false,
+		"primehack": false,
+		"rpcs3": false
+	},
+	"borders": {
+		"gb": false,
+		"gba": false,
+		"gbc": false,
+		"genesis": false,
+		"gg": false,
+		"n64": false,
+		"psx_ra": false,
+		"snes": false
+	},
+	"cheevos": {
+		"duckstation": false,
+		"pcsx2": false,
+		"retroarch": false
+	},
+	"cheevos_hardcore": {
+		"duckstation": false,
+		"pcsx2": false,
+		"retroarch": false
+	},
+	"options": {
+		"akai_ponzu": false,
+		"ask_default_user": true,
+		"branch": "",
+		"cheevos_login": false,
+		"cloud_saves": false,
+		"default_user": "",
+		"desktop_mode_warning": true,
+		"developer_options": true,
+		"font": "1",
+		"kiroi_ponzu": false,
+		"low_space_warning": true,
+		"multi_user_mode": false,
+		"power_user_warning": true,
+		"sound_effects": true,
+		"update_check": true,
+		"update_ignore": "",
+		"update_repo": "Cooker",
+		"volume_effects": "10"
+	},
+	"emusrus": {
+		"default": "$HOME/.config/emusrus",
+	},
+	"es-de": {
+		"default_linux": "$HOME/.config/es-de",
+		"logs_folder": "/logs",
+		"media_folder": "/downloaded_media",
+		"roms_folder": "/roms",
+		"themes_folder": "/themes"
+	},
+	"retroarch": {
+		"default": "$HOME/.config/retroarch",
+		"default_linux": "$HOME/.config/retroarch",
+		"default_windows": "$HOME/.config/retroarch",
+		"default_android": "$HOME/.config/retroarch",
+		"bios_folder": "/system",
+		"borders_folder": "/overlays",
+		"cheats_folder": "/cheats",
+		"cores_folder": "/cores",
+		"logs_folder": "/logs",
+		"media_folder": "/downloaded_media",
+		"mods_folder": "",
+		"roms_folder": "/roms",
+		"saves_folder": "/saves",
+		"screenshots_folder": "/screenshots",
+		"states_folder": "/states",
+		"texture_packs_folder": "/texture_packs",
+		"themes_folder": "/themes"
+	},
+	"retrodeck": {
+		"bios_folder": "/run/media/user/DATA/retrodeck/bios",
+		"borders_folder": "/run/media/user/DATA/retrodeck/borders",
+		"logs_folder": "/run/media/user/DATA/retrodeck/logs",
+		"media_folder": "/run/media/user/DATA/retrodeck/downloaded_media",
+		"mods_folder": "/run/media/user/DATA/retrodeck/mods",
+		"rdhome": "/run/media/user/DATA/retrodeck",
+		"roms_folder": "/run/media/user/DATA/retrodeck/roms",
+		"saves_folder": "/run/media/user/DATA/retrodeck/saves",
+		"screenshots_folder": "/run/media/user/DATA/retrodeck/screenshots",
+		"sdcard": "/run/media/mmcblk0p1",
+		"states_folder": "/run/media/user/DATA/retrodeck/states",
+		"texture_packs_folder": "/run/media/user/DATA/retrodeck/texture_packs",
+		"themes_folder": "/run/media/user/DATA/retrodeck/themes"
+	},
+	"quick_resume": {
+		"retroarch": true
+	},
+	"rewind": {
+		"gb": true,
+		"gba": true,
+		"gbc": true,
+		"genesis": true,
+		"gg": true,
+		"snes": true
+	},
+	"version": "alpha-001a",
+	"widescreen": {
+		"genesis": true,
+		"n64": true,
+		"psx_ra": true,
+		"snes": true
+	}
+}

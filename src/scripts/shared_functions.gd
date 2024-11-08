@@ -46,7 +46,7 @@ func execute_command(command: String, parameters: Array, console: bool) -> Dicti
 
 func run_command_in_thread(command: String, paramaters: Array, console: bool) -> Dictionary:
 	var thread = Thread.new()
-	var bob = thread.start(execute_command.bind(command,paramaters,console))
+	thread.start(execute_command.bind(command,paramaters,console))
 	while thread.is_alive():
 		await get_tree().process_frame
 	emit_signal("command_finished", result)
