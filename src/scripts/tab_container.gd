@@ -36,5 +36,9 @@ func show_info(button: Button) -> void:
 		"emusrus_button":
 			%emusrus_vbox.visible = true
 		"retroarch_button":
+			if SharedFunctions.RA_PATH != "":
+				%retroarch_valid.text = "Path validated"
+			else:
+				%retroarch_valid.text = "Path not found!"
 			%retroarch_vbox.visible = true
 			
