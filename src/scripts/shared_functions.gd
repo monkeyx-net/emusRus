@@ -34,7 +34,7 @@ func _ready() -> void:
 		RA_PATH = DEFAULT_RA_PATH_LINUX.get_base_dir()
 	else:
 		DEFAULT_RA_PATH_LINUX=""
-		
+
 func find_app() -> Dictionary:
 	pass
 	var bob: Dictionary

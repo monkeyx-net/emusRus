@@ -115,7 +115,6 @@ offset_bottom = 274.0
 
 [node name="emusrus_vbox" type="VBoxContainer" parent="TabContainer/START/Panel2/status_margin"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 
@@ -170,8 +169,27 @@ text = "OS VERSION:"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="GridContainer2" type="GridContainer" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="hostname_label" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
+layout_mode = 2
+text = "CLOUD SYNC ENABLED:"
+
+[node name="hostname" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
+layout_mode = 2
+
+[node name="hostname_label2" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
+layout_mode = 2
+text = "IF NOT ENABLED/Button to jump/check"
+
 [node name="retroarch_vbox" type="VBoxContainer" parent="TabContainer/START/Panel2/status_margin"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 
@@ -187,7 +205,7 @@ size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
 text = "DETECTED SYSTEM INFORMATION:"
 
-[node name="Button" type="Button" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
+[node name="paths_button" type="Button" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
 layout_mode = 2
 text = "CHANGE PATHS"
 
@@ -205,6 +223,20 @@ text = "RetroArch Path:"
 [node name="retroarch_path" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="retroarch_valid_label" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox/GridContainer"]
+layout_mode = 2
+text = "RetroArch Found:"
+
+[node name="retroarch_valid" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
+text = "DETECTED SAVES"
 
 [node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
 visible = false
