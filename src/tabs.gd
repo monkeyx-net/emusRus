@@ -7,7 +7,11 @@ func _ready() -> void:
 	var favorites = find_favorites()
 	save_favorites(favorites)
 	print("Favorite games saved to favorites.xml.")
-
+	%hostname.text = SharedFunctions.HOSTNAME
+	%os_type.text = SharedFunctions.OS_TYPE
+	%os_distro.text = SharedFunctions.OS_DISTRO
+	%os_version.text = SharedFunctions.OS_VERSION
+	%retroarch_path.text = SharedFunctions.RA_PATH
 
 func find_favorites() -> Array:
 	var favorite_games = []

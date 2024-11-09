@@ -1,14 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=13 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Script" path="res://tabs.gd" id="1_dai08"]
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
 [ext_resource type="Texture2D" uid="uid://b2ju80qr5hpwd" path="res://icon.svg" id="2_m87si"]
 [ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_2pk67"]
 [ext_resource type="Texture2D" uid="uid://b04pju0x7yk7n" path="res://assets/graphics/systems/retroarch _inv.svg" id="3_efpsm"]
+[ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_s4j2r"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="4_svoj6"]
 [ext_resource type="Texture2D" uid="uid://bwbd1jll423o8" path="res://assets/graphics/systems/retrodeck.svg" id="5_g8oh4"]
 [ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]
 [ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="8_7470p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi6a8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu0l4"]
+bg_color = Color(0.348983, 0.59231, 0.993138, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,47 +31,180 @@ script = ExtResource("1_dai08")
 [node name="TabContainer" type="TabContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.689
 anchor_bottom = 1.0
+offset_right = 0.119995
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 0
 script = ExtResource("3_2pk67")
 
-[node name="START" type="MarginContainer" parent="TabContainer"]
+[node name="START" type="SplitContainer" parent="TabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/minimum_grab_thickness = 600
+split_offset = 300
+dragger_visibility = 1
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="TabContainer/START"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/START/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_right = 88.0
+offset_bottom = 838.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/START/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+
+[node name="emusrus_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "EMULATORS R US "
+icon = ExtResource("4_s4j2r")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="retroarch_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETROARCH"
+icon = ExtResource("3_efpsm")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="es_de_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ES-DE"
+icon = ExtResource("4_svoj6")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="retrodeck_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETRODECK"
+icon = ExtResource("5_g8oh4")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Panel2" type="Panel" parent="TabContainer/START"]
+layout_mode = 2
+
+[node name="status_margin" type="MarginContainer" parent="TabContainer/START/Panel2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 341.0
+offset_bottom = 274.0
+
+[node name="emusrus_vbox" type="VBoxContainer" parent="TabContainer/START/Panel2/status_margin"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-metadata/_tab_index = 0
+theme_override_constants/separation = 20
 
-[node name="RetroarchInv" type="Sprite2D" parent="TabContainer/START"]
-position = Vector2(575, 278)
-scale = Vector2(0.241875, 0.216875)
-texture = ExtResource("3_efpsm")
-
-[node name="Retrodeck" type="Sprite2D" parent="TabContainer/START"]
-position = Vector2(253, 462)
-scale = Vector2(0.601562, 0.601562)
-texture = ExtResource("5_g8oh4")
-
-[node name="Org_esDe_frontend" type="Sprite2D" parent="TabContainer/START"]
-position = Vector2(238, 273)
-scale = Vector2(0.365702, 0.256198)
-texture = ExtResource("4_svoj6")
-
-[node name="Label" type="Label" parent="TabContainer/START"]
+[node name="Label" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "WELCOME
-DETECTED SUPPORTED  SYSTEMS BELOW
-- MANUAL FIX
-- SELECT ONE/BOTH
-- LINK/DOWNLOAD
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
+text = "EMULATORS R US - SUMMARY SCREEN"
 
-NONE INSTALLED
-LINKS OR DOWNLOAD?"
+[node name="Label2" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
+text = "DETECTED SYSTEM INFORMATION:"
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="hostname_label" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+layout_mode = 2
+text = "HOST NAME:"
+
+[node name="hostname" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="os_type_label" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+layout_mode = 2
+text = "OS:"
+
+[node name="os_type" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="os_distro_label" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+layout_mode = 2
+text = "DISTRO:"
+
+[node name="os_distro" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="os_versio_label" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+layout_mode = 2
+text = "OS VERSION:"
+
+[node name="os_version" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="retroarch_vbox" type="VBoxContainer" parent="TabContainer/START/Panel2/status_margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
+text = "RETROARCH - SUMMARY SCREEN"
+
+[node name="Label2" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
+text = "DETECTED SYSTEM INFORMATION:"
+
+[node name="Button" type="Button" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
+layout_mode = 2
+text = "CHANGE PATHS"
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="retroarch_path_label" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox/GridContainer"]
+layout_mode = 2
+text = "RetroArch Path:"
+
+[node name="retroarch_path" type="Label" parent="TabContainer/START/Panel2/status_margin/retroarch_vbox/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
 visible = false
@@ -74,6 +213,7 @@ metadata/_tab_index = 1
 
 [node name="BACKUPS" type="VBoxContainer" parent="TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -86,7 +226,6 @@ icon = ExtResource("6_fuskr")
 
 [node name="backups_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 columns = 3
 
@@ -95,7 +234,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "SETUP
 CONFIG
-Do not show other buttons uness done."
+Do not show other buttons uness done.
+Show spinner finished?"
 icon = ExtResource("2_m87si")
 
 [node name="backup_2" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
@@ -150,3 +290,30 @@ icon = ExtResource("2_m87si")
 layout_mode = 2
 size_flags_vertical = 3
 text = "bob"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.693
+anchor_top = 0.048
+anchor_right = 0.999
+anchor_bottom = 0.997
+offset_left = -0.560059
+offset_top = 0.16
+offset_right = 0.919922
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu0l4")
+text = "WELCOME to EMUS R US
+
+- MANUAL FIX
+- SELECT ONE/BOTH
+- LINK/DOWNLOAD
+
+NONE INSTALLED
+LINKS OR DOWNLOAD?"

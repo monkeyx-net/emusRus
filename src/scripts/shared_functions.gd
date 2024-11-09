@@ -4,15 +4,37 @@ extends Node
 const ESDE_ACTIVE := true
 const RA_ACTIVE := true
 var result = {}
+var OS_TYPE: String
+var HOSTNAME: String
+var OS_DISTRO: String
+var OS_VERSION: String
+var RA_PATH: String
+var DEFAULT_RA_PATH_LINUX = ""
+var DEFAULT_RA_PATH_WINDOWS = ""
+var DEFAULT_RA_PATH_ANDROID =  ""
 
 signal command_finished(result: String)
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	
+	OS_TYPE = OS.get_name();
+	if OS_TYPE != "Windows":
+		# Get Basic Host Information
+		execute_command("hostname", [], true)
+		HOSTNAME = result["output"]
+		execute_command("lsb_release", ["-ds"], true)
+		OS_DISTRO = result["output"].replace ('"', '')
+		execute_command("lsb_release", ["-rs"], true)
+		OS_VERSION = result["output"]
+	# Get EMUSRUS Information
+	
+	# Get RetroArch Information
+	DEFAULT_RA_PATH_LINUX = OS.get_environment("HOME") + "/.config/retroarch/retroarch.cfg"
+	if FileAccess.file_exists(DEFAULT_RA_PATH_LINUX):
+		RA_PATH = DEFAULT_RA_PATH_LINUX.get_base_dir()
+	else:
+		DEFAULT_RA_PATH_LINUX=""
+		
 func find_app() -> Dictionary:
 	pass
 	var bob: Dictionary
@@ -39,6 +61,7 @@ func array_to_string(arr: Array) -> String:
 
 func execute_command(command: String, parameters: Array, console: bool) -> Dictionary:
 	var output = []
+	print ("exec: " + command + " " + str(parameters))
 	var exit_code = OS.execute(command, parameters, output, console) ## add if exit == 0 etc
 	result["output"] = array_to_string(output)
 	result["exit_code"] = exit_code	
@@ -51,3 +74,11 @@ func run_command_in_thread(command: String, paramaters: Array, console: bool) ->
 		await get_tree().process_frame
 	emit_signal("command_finished", result)
 	return thread.wait_to_finish()
+
+func run_batch(process: String) -> void:
+	match process:
+		"rclone_setup":
+			execute_command("rclone", ["config", "--config=config/rclone/rclone_emu.conf", "update", "emusRus_GoogleDrive"], false)
+			run_command_in_thread("rclone", ["--config=config/rclone/rclone_emu.conf", "mkdir", "emusRus_GoogleDrive:emusRus/bob"], false)
+			run_command_in_thread("rclone", ["--config=config/rclone/rclone_emu.conf", "mkdir", "emusRus_GoogleDrive:emusRus/saves"], false)
+			run_command_in_thread("rclone", ["--config=config/rclone/rclone_emu.conf", "mkdir", "emusRus_GoogleDrive:emusRus/config"], false)
