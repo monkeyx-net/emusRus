@@ -6,7 +6,6 @@ extends Control
 @onready var http_request: HTTPRequest = $HTTPRequest
 
 func _ready():
-
 	$Button_Processed.text = config_dir
 
 # Function to extract paths and names from XML
@@ -44,21 +43,18 @@ func save_to_csv_and_check_files(games: Array, csv_file: String, base_path: Stri
 		print("Failed to open CSV file: %s" % csv_file)
 		return
 	file.store_line("Path,Name,name_cfg,name_png,BezelPath")  # Write the header
-
 	var overlay_path_prefix = "../retroarch/overlays/arcade/"
 	var sline = ""
 	
 	for game in games:
 		var path = game[0]
 		#var name = game[1]
-		
 		# Strip the left two characters and the right four characters, then add .cfg
 		var name_cfg = path.substr(2, path.length() - 6) + ".cfg"
 		var name_png = path.substr(2, path.length() - 6) + ".png"
 		var bezel_path = base_path + name_cfg
 		sline =("%s,%s,%s,%s,%s" % [path, name, name_cfg, name_png, bezel_path])
 		file.store_line(sline)
-	
 		# Check if the file exists, if not create it
 		var file_path = config_dir + name_cfg
 		if not FileAccess.file_exists(file_path):
@@ -84,7 +80,6 @@ func _on_button_process_pressed():
 	var xml_file = "gamelist.xml"
 	var csv_file = "csv/games.csv"
 	var base_path = "/base/path/"
-
 	for i in range(args.size()):
 		if args[i] == "--xml_file" and i + 1 < args.size():
 			xml_file = args[i + 1]
@@ -105,14 +100,11 @@ func _on_file_dialog_load_file_selected(path):
 func _on_button_csv_pressed():
 	OS.shell_open($Button_Csv.text)
 
-
 func _on_button_processed_pressed():
 	OS.shell_open(config_dir)
 
-
 func _on_button_process_2_pressed():
 	pass # Replace with function body.
-
 
 func _on_http_request_request_completed(result, response_code, headers, body):
 	if response_code == 200:
@@ -124,7 +116,6 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 			print("Error parsing JSON response")
 	else:
 		print("HTTP request failed with response code: ", response_code)
-
 
 func _on_button_load_2_pressed() -> void:
 	OS.execute("rclone", ["--fast-list", "--ignore-checksum",  "config", "create", "RetroDECKS", "drive"])

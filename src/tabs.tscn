@@ -1,15 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=17 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Script" path="res://tabs.gd" id="1_dai08"]
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
-[ext_resource type="Texture2D" uid="uid://b2ju80qr5hpwd" path="res://icon.svg" id="2_m87si"]
+[ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="2_m87si"]
 [ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_2pk67"]
 [ext_resource type="Texture2D" uid="uid://b04pju0x7yk7n" path="res://assets/graphics/systems/retroarch _inv.svg" id="3_efpsm"]
 [ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_s4j2r"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="4_svoj6"]
 [ext_resource type="Texture2D" uid="uid://bwbd1jll423o8" path="res://assets/graphics/systems/retrodeck.svg" id="5_g8oh4"]
 [ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]
+[ext_resource type="Texture2D" uid="uid://dx0y2q44xia76" path="res://assets/graphics/systems/batocera.png" id="8_6ykkk"]
 [ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="8_7470p"]
+[ext_resource type="Texture2D" uid="uid://caybf5tydvkhb" path="res://assets/graphics/systems/ares.jpg" id="9_m4a56"]
+[ext_resource type="Texture2D" uid="uid://deea32nm8koq8" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="10_4xi7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ab3o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi6a8"]
 
@@ -53,13 +58,11 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/START/Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -88.0
-offset_right = 88.0
-offset_bottom = 838.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 15
@@ -67,44 +70,67 @@ theme_override_constants/margin_bottom = 15
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/START/Panel/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 25
 
 [node name="emusrus_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 64
 text = "EMULATORS R US "
 icon = ExtResource("4_s4j2r")
 icon_alignment = 1
-vertical_icon_alignment = 0
+vertical_icon_alignment = 2
 
 [node name="retroarch_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/icon_max_width = 64
 text = "RETROARCH"
 icon = ExtResource("3_efpsm")
 icon_alignment = 1
-vertical_icon_alignment = 0
+vertical_icon_alignment = 2
 
 [node name="es_de_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/icon_max_width = 64
 text = "ES-DE"
 icon = ExtResource("4_svoj6")
 icon_alignment = 1
-vertical_icon_alignment = 0
+vertical_icon_alignment = 2
 
 [node name="retrodeck_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/icon_max_width = 64
 text = "RETRODECK"
 icon = ExtResource("5_g8oh4")
 icon_alignment = 1
-vertical_icon_alignment = 0
+vertical_icon_alignment = 2
+
+[node name="batocera_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 64
+text = "BATOCERA"
+icon = ExtResource("8_6ykkk")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="ares_button" type="Button" parent="TabContainer/START/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 64
+text = "ARES"
+icon = ExtResource("9_m4a56")
+icon_alignment = 1
+vertical_icon_alignment = 2
 
 [node name="Panel2" type="Panel" parent="TabContainer/START"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ab3o")
 
 [node name="status_margin" type="MarginContainer" parent="TabContainer/START/Panel2"]
 layout_mode = 0
@@ -185,7 +211,14 @@ layout_mode = 2
 
 [node name="hostname_label2" type="Label" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
 layout_mode = 2
-text = "IF NOT ENABLED/Button to jump/check"
+text = "IF NOT ENABLED/Button to jump/check
+CLOUD SYNC SERVICE STATUS
+CLOUD SYNC LOG"
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("10_4xi7b")
 
 [node name="retroarch_vbox" type="VBoxContainer" parent="TabContainer/START/Panel2/status_margin"]
 unique_name_in_owner = true
