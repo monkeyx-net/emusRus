@@ -1,18 +1,42 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cclle0dpqo4th"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cclle0dpqo4th"]
 
-[sub_resource type="Gradient" id="Gradient_g1le3"]
+[sub_resource type="Gradient" id="Gradient_xg37g"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5jdrv"]
-gradient = SubResource("Gradient_g1le3")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q21mg"]
+gradient = SubResource("Gradient_xg37g")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7r07"]
-texture = SubResource("GradientTexture2D_5jdrv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dutib"]
+texture = SubResource("GradientTexture2D_q21mg")
+
+[sub_resource type="Gradient" id="Gradient_yddld"]
+colors = PackedColorArray(0, 0.0666667, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e8w1c"]
+gradient = SubResource("Gradient_yddld")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jyg6"]
+texture = SubResource("GradientTexture2D_e8w1c")
+
+[sub_resource type="Gradient" id="Gradient_x6ghk"]
+colors = PackedColorArray(0.29219, 0.29219, 0.29219, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ufeyx"]
+gradient = SubResource("Gradient_x6ghk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c4w8o"]
+texture = SubResource("GradientTexture2D_ufeyx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58ok2"]
+texture = SubResource("GradientTexture2D_e8w1c")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqrel"]
 
 [resource]
 Button/constants/icon_max_width = 128
-Button/styles/hover = SubResource("StyleBoxTexture_u7r07")
+Button/styles/hover = SubResource("StyleBoxTexture_dutib")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_4jyg6")
+Button/styles/normal = SubResource("StyleBoxTexture_c4w8o")
+Button/styles/pressed = SubResource("StyleBoxTexture_58ok2")
 TabContainer/font_sizes/font_size = 32
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_yqrel")
