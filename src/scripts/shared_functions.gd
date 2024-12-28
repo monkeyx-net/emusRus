@@ -12,15 +12,13 @@ var RA_PATH: String
 var DEFAULT_RA_PATH_LINUX = ""
 var DEFAULT_RA_PATH_WINDOWS = ""
 var DEFAULT_RA_PATH_ANDROID =  ""
-
 signal command_finished(result: String)
 
 func _ready() -> void:
-	
 	OS_TYPE = OS.get_name();
 	if OS_TYPE != "Windows":
 		# Get Basic Host Information
-		execute_command("hostname", [], true)
+		execute_command("uname", ["-n"], true)
 		HOSTNAME = result["output"]
 		execute_command("lsb_release", ["-ds"], true)
 		OS_DISTRO = result["output"].replace ('"', '')
