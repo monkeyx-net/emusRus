@@ -62,7 +62,8 @@ func execute_command(command: String, parameters: Array, console: bool) -> Dicti
 	print ("exec: " + command + " " + str(parameters))
 	var exit_code = OS.execute(command, parameters, output, console) ## add if exit == 0 etc
 	result["output"] = array_to_string(output)
-	result["exit_code"] = exit_code	
+	result["exit_code"] = exit_code
+	print ("Exit code:" + str(result["exit_code"]) + " " + result["output"])
 	return result
 
 func run_command_in_thread(command: String, paramaters: Array, console: bool) -> Dictionary:

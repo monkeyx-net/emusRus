@@ -173,6 +173,9 @@ ls -ltr[/code]
 [cell]bsnes 2014 Performance[/cell][cell]Nintendo SNES/SFC[/cell][cell][/cell]
 [/table]"
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
+
 [connection signal="file_selected" from="FileDialog_Load" to="." method="_on_file_dialog_load_file_selected"]
 [connection signal="pressed" from="Button_Load" to="." method="_on_button_load_pressed"]
 [connection signal="pressed" from="Button_Load2" to="." method="_on_button_load_2_pressed"]
