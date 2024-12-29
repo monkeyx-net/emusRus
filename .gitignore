@@ -1,4 +1,5 @@
 .godot/
+* .AppImage
 
 # Godot-specific ignores
 .import/
