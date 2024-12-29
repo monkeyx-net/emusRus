@@ -6,6 +6,8 @@ extends Control
 @onready var http_request: HTTPRequest = $HTTPRequest
 
 func _ready():
+	#http_request = HTTPRequest.new()
+	#add_child(http_request)
 	$Button_Processed.text = config_dir
 
 # Function to extract paths and names from XML

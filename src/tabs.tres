@@ -18,14 +18,14 @@ gradient = SubResource("Gradient_yddld")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jyg6"]
 texture = SubResource("GradientTexture2D_e8w1c")
 
-[sub_resource type="Gradient" id="Gradient_x6ghk"]
-colors = PackedColorArray(0.29219, 0.29219, 0.29219, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_mko12"]
+colors = PackedColorArray(0, 0, 0.862745, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ufeyx"]
-gradient = SubResource("Gradient_x6ghk")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rboov"]
+gradient = SubResource("Gradient_mko12")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c4w8o"]
-texture = SubResource("GradientTexture2D_ufeyx")
+texture = SubResource("GradientTexture2D_rboov")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58ok2"]
 texture = SubResource("GradientTexture2D_e8w1c")
