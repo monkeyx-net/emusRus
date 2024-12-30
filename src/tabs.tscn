@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=16 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Script" path="res://tabs.gd" id="1_dai08"]
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]
 [ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="8_7470p"]
 [ext_resource type="Texture2D" uid="uid://deea32nm8koq8" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="10_4xi7b"]
+[ext_resource type="FontFile" uid="uid://d0hjgpqa7fyei" path="res://assets/fonts/toys_r_us.ttf" id="12_u8ygd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ab3o"]
 
@@ -23,9 +24,12 @@ bg_color = Color(0.348983, 0.59231, 0.993138, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchor_top = 0.178
+anchor_right = 0.968
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -6.24001
+offset_right = 61.4399
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -41,12 +45,13 @@ anchor_right = 1.0
 anchor_bottom = 0.812963
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 2
 script = ExtResource("3_2pk67")
 metadata/_edit_use_anchors_ = true
 
 [node name="START" type="SplitContainer" parent="TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/minimum_grab_thickness = 600
 split_offset = 300
@@ -263,6 +268,24 @@ size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
 text = "DETECTED SAVES"
 
+[node name="TabContainer" type="TabContainer" parent="TabContainer/START/Panel2"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = -4.00006
+current_tab = 0
+
+[node name="Screen1" type="MarginContainer" parent="TabContainer/START/Panel2/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Screen2" type="MarginContainer" parent="TabContainer/START/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
 [node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
@@ -270,7 +293,6 @@ metadata/_tab_index = 1
 
 [node name="BACKUPS" type="VBoxContainer" parent="TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -378,3 +400,51 @@ timeout = 30.0
 
 [node name="download_timer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.202461
+anchor_right = 1.00052
+anchor_bottom = -0.0033557
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = -1013.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("12_u8ygd")
+theme_override_font_sizes/normal_font_size = 155
+bbcode_enabled = true
+text = "[color=#f00000]E[/color][color=#0e16bd]M[/color][color=#00ea00]U[/color][color=#f00000]S[/color] [color=#00ea00]'[/color][color=#ff510a]R[/color][color=#00ea00]'[/color] [color=#00ea00]U[/color][color=#f00000]S[/color]"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.034
+anchor_right = 1.0
+anchor_bottom = 1.212
+offset_left = -0.0391235
+offset_top = -0.0520005
+offset_right = -3.00012
+offset_bottom = -37.736
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 54
+text = "
+Putting the fun back into emulation."
