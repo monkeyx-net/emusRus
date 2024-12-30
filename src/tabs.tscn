@@ -37,13 +37,13 @@ script = ExtResource("1_dai08")
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.689
-anchor_bottom = 1.0
-offset_right = 0.119995
+anchor_right = 1.0
+anchor_bottom = 0.812963
 grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
 script = ExtResource("3_2pk67")
+metadata/_edit_use_anchors_ = true
 
 [node name="START" type="SplitContainer" parent="TabContainer"]
 unique_name_in_owner = true
@@ -58,15 +58,16 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/START/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 1.01333
+anchor_bottom = 0.803311
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/START/Panel/MarginContainer"]
 layout_mode = 2
@@ -87,7 +88,7 @@ vertical_icon_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/icon_max_width = 64
-text = "ES-DE"
+text = "ES-DE default is ~/ES-DE"
 icon = ExtResource("4_svoj6")
 icon_alignment = 1
 vertical_icon_alignment = 2
@@ -350,16 +351,12 @@ text = "bob"
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.693
-anchor_top = 0.048
-anchor_right = 0.999
-anchor_bottom = 0.997
-offset_left = -0.560059
-offset_top = 0.16
-offset_right = 0.919922
-offset_bottom = 0.23999
+anchor_top = 0.810185
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
