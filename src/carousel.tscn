@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfqonshkdcju8"]
+
+[ext_resource type="Script" path="res://scripts/carousel.gd" id="1_f4cug"]
+[ext_resource type="Texture2D" uid="uid://b01ljb44rhklo" path="res://assets/graphics/retro-gaming-1920-x-1080-wallpaper.jpg" id="2_gx6gm"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_f4cug")
+background_texture = ExtResource("2_gx6gm")

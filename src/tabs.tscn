@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
 [ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="2_m87si"]
 [ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_2pk67"]
-[ext_resource type="Texture2D" uid="uid://b04pju0x7yk7n" path="res://assets/graphics/systems/retroarch _inv.svg" id="3_efpsm"]
+[ext_resource type="Texture2D" path="res://assets/graphics/systems/retroarch _inv.svg" id="3_efpsm"]
 [ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_s4j2r"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="4_svoj6"]
 [ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]

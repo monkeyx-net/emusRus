@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b04pju0x7yk7n"
-path="res://.godot/imported/retroarch _inv.svg-5de1cb709bdcd63969250c9608c54fe3.ctex"
+uid="uid://b01ljb44rhklo"
+path="res://.godot/imported/retro-gaming-1920-x-1080-wallpaper.jpg-8381de9d7063b22d84ab8c5cb9467aba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/systems/retroarch _inv.svg"
-dest_files=["res://.godot/imported/retroarch _inv.svg-5de1cb709bdcd63969250c9608c54fe3.ctex"]
+source_file="res://assets/graphics/retro-gaming-1920-x-1080-wallpaper.jpg"
+dest_files=["res://.godot/imported/retro-gaming-1920-x-1080-wallpaper.jpg-8381de9d7063b22d84ab8c5cb9467aba.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
