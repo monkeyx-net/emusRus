@@ -1,6 +1,6 @@
 extends Control
 
-var gameslist_dir = "/run/media/tim/DATA/es-de/.config/ES-DE/gamelists"
+var gameslist_dir = "/home/tim/ES-DE/gamelists"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
