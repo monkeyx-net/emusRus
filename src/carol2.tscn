@@ -15,10 +15,9 @@ offset_right = 960.0
 offset_bottom = 419.5
 grow_horizontal = 2
 grow_vertical = 2
-follow_focus = true
+vertical_scroll_mode = 0
 script = ExtResource("1_uj8kq")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-columns = 9
+columns = 8
