@@ -22,22 +22,33 @@ var current_index: int = 0
 var total_width: float = 0.0
 var input_hold_time: float = 0.0
 var last_input_time: float = 0.0
+var description_label: RichTextLabel
 
 func _ready():
 	setup_background()
 	container = Node2D.new()
 	add_child(container)
+	
+	# Create the RichTextLabel for descriptions
+	description_label = RichTextLabel.new()
+	description_label.bbcode_enabled = true
+	description_label.fit_content = true
+	description_label.scroll_active = false
+	description_label.custom_minimum_size = Vector2(400, 100)  # Adjust size as needed
+	description_label.position = Vector2(100, 300)  # Position below the carousel
+	add_child(description_label)
+	
 	menu_items = [
-		{"id": 1, "name": "EMUSRUS", "icon": "res://assets/graphics/emusRus_icon.png"},
-		{"id": 2, "name": "ES-DE", "icon": "res://assets/graphics/systems/org.es_de.frontend.svg"},
-		{"id": 3, "name": "RETROARCH", "icon": "res://assets/graphics/systems/retroarch_inv.svg"},
-		{"id": 4, "name": "BATOCERA", "icon": "res://assets/graphics/systems/batocera-icon.png"},
-		{"id": 5, "name": "GODOT", "icon": "res://icon.svg"},
-		{"id": 6, "name": "EMUSRUS", "icon": "res://assets/graphics/emusRus_icon.png"},
-		{"id": 7, "name": "ES-DE", "icon": "res://assets/graphics/systems/org.es_de.frontend.svg"},
-		{"id": 8, "name": "RETROARCH", "icon": "res://assets/graphics/systems/retroarch_inv.svg"},
-		{"id": 9, "name": "BATOCERA", "icon": "res://assets/graphics/systems/batocera-icon.png"},
-		{"id": 10, "name": "GODOT", "icon": "res://icon.svg"}
+		{"id": 1, "name": "EMUSRUS", "icon": "res://assets/graphics/emusRus_icon.png", "description": "[center]EmusRus is a retro gaming hub.[/center]"},
+		{"id": 2, "name": "ES-DE", "icon": "res://assets/graphics/systems/org.es_de.frontend.svg", "description": "[center]ES-DE is a frontend for emulators.[/center]"},
+		{"id": 3, "name": "RETROARCH", "icon": "res://assets/graphics/systems/retroarch_inv.svg", "description": "[center]RetroArch is a powerful emulator.[/center]"},
+		{"id": 4, "name": "BATOCERA", "icon": "res://assets/graphics/systems/batocera-icon.png", "description": "[center]Batocera is a retro gaming OS.[/center]"},
+		{"id": 5, "name": "GODOT", "icon": "res://icon.svg", "description": "[center]Godot is a game engine.[/center]"},
+		{"id": 6, "name": "EMUSRUS", "icon": "res://assets/graphics/emusRus_icon.png", "description": "[center]EmusRus is a retro gaming hub.[/center]"},
+		{"id": 7, "name": "ES-DE", "icon": "res://assets/graphics/systems/org.es_de.frontend.svg", "description": "[center]ES-DE is a frontend for emulators.[/center]"},
+		{"id": 8, "name": "RETROARCH", "icon": "res://assets/graphics/systems/retroarch_inv.svg", "description": "[center]RetroArch is a powerful emulator.[/center]"},
+		{"id": 9, "name": "BATOCERA", "icon": "res://assets/graphics/systems/batocera-icon.png", "description": "[center]Batocera is a retro gaming OS.[/center]"},
+		{"id": 10, "name": "GODOT", "icon": "res://icon.svg", "description": "[center]Godot is a game engine.[/center]"}
 	]
 	setup_buttons()
 	update_selection()
@@ -165,6 +176,8 @@ func update_selection():
 	update_button_positions()
 	if current_index >= 0 and current_index < buttons.size():
 		buttons[current_index].grab_focus()
+		# Update the description label with the current item's description
+		description_label.text = menu_items[current_index]["description"]
 
 func adjust_to_viewport():
 	var viewport_size = get_viewport_rect().size
@@ -172,6 +185,8 @@ func adjust_to_viewport():
 	container.position.x = 0
 	if background:
 		background.position = -viewport_size / 2
+	# Adjust the description label position
+	#description_label.position = Vector2(0, viewport_size.y / 2 + 100)  # Adjust Y position as needed
 
 func _on_viewport_resized():
 	adjust_to_viewport()
