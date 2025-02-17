@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://j8hu0n8fc5s2"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_cag2y"]
+[ext_resource type="Texture2D" uid="uid://b01ljb44rhklo" path="res://assets/graphics/retro-gaming-1920-x-1080-wallpaper.jpg" id="1_whlyq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cag2y")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_whlyq")
+stretch_mode = 2
+
+[node name="Carousel" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 427.0
+offset_right = 1921.0
+offset_bottom = 617.0
