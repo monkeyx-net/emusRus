@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://4bleyy1txtrx"]
 
 [node name="Button" type="Button"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(256, 256)
 anchors_preset = -1
-anchor_right = 0.067
-anchor_bottom = 0.119
-offset_right = -0.639999
-offset_bottom = -0.520004
+offset_right = 256.0
+offset_bottom = 256.0
 icon_alignment = 1
 expand_icon = true
 
