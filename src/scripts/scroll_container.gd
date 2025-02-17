@@ -49,8 +49,8 @@ func _ready():
 		
 		# Create a new MarginContainer for each button
 		var margin_container = MarginContainer.new()
-		margin_container.add_theme_constant_override("margin_left", 80)  # 40px left margin
-		margin_container.add_theme_constant_override("margin_right", 80) # 40px right margin
+		margin_container.add_theme_constant_override("margin_left", 80)  # Default left margin
+		margin_container.add_theme_constant_override("margin_right", 80) # Default right margin
 		margin_container.add_child(button_instance)
 		
 		# Add the MarginContainer (with the button inside) to the grid_container
@@ -75,15 +75,19 @@ func move_selection(direction: int):
 		select_button(grid_container.get_child(new_index).get_child(0) as Button, new_index)
 
 func select_button(button: Button, index: int):
-	# If a button is already selected, scale it back
+	# If a button is already selected, reset its scale and margins
 	if current_selected_button:
 		tween_button_scale(current_selected_button, Vector2(1, 1))
+		reset_margins(current_selected_button)
+	
 	# Set new selected button
 	current_selected_button = button
 	current_selected_index = index
-	# Tween the new button to be larger
-	tween_button_scale(button, Vector2(1.5, 1.5))  # Adjusted scale for better visibility
 	
+	# Tween the new button to be larger and adjust its margins
+	tween_button_scale(button, Vector2(1.65, 1.65))  # Scale up the selected button
+	adjust_margins_for_selected(button)
+
 func _on_button_pressed(button: Button):
 	var index = -1
 	for i in range(grid_container.get_child_count()):
@@ -102,5 +106,21 @@ func tween_button_scale(button: Button, target_scale: Vector2):
 		button,
 		"scale",
 		target_scale,
-		0.6  # Duration of the tween
+		1.9  # Duration of the tween
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+func adjust_margins_for_selected(button: Button):
+	# Get the MarginContainer parent of the button
+	var margin_container = button.get_parent() as MarginContainer
+	if margin_container:
+		# Reduce margins for the selected button
+		margin_container.add_theme_constant_override("margin_left", 20)  # Smaller left margin
+		margin_container.add_theme_constant_override("margin_right", 100) # Smaller right margin
+
+func reset_margins(button: Button):
+	# Get the MarginContainer parent of the button
+	var margin_container = button.get_parent() as MarginContainer
+	if margin_container:
+		# Reset margins to default
+		margin_container.add_theme_constant_override("margin_left", 20)  # Default left margin
+		margin_container.add_theme_constant_override("margin_right", 20) # Default right margin
