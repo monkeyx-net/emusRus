@@ -2,7 +2,6 @@
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(256, 256)
-anchors_preset = -1
 offset_right = 256.0
 offset_bottom = 256.0
 icon_alignment = 1

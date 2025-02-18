@@ -1,7 +1,23 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfqonshkdcju8"]
 
-[ext_resource type="Script" path="res://scripts/carousel.gd" id="1_f4cug"]
+[ext_resource type="Script" path="res://scripts/scroll_container.gd" id="1_uj8kq"]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(30, 27)
-script = ExtResource("1_f4cug")
+[node name="ScrollContainer" type="ScrollContainer"]
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -419.5
+offset_right = 960.0
+offset_bottom = 419.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+script = ExtResource("1_uj8kq")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 8
