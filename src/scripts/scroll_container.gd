@@ -33,6 +33,9 @@ func _ready():
 
 	for item in items:
 		var button_instance = button_template.instantiate()
+		# Set the button's name to the description
+		button_instance.name = item["description"]
+
 		# Set the graphic and description
 		var texture_rect: TextureRect = button_instance.get_node("TextureRect")
 		var label: Label = button_instance.get_node("Label")
@@ -69,10 +72,20 @@ func _input(event: InputEvent):
 				move_selection(1)
 
 func move_selection(direction: int):
-	var new_index = current_selected_index + direction
 	var button_count = grid_container.get_child_count()
-	if new_index >= 0 and new_index < button_count:
-		select_button(grid_container.get_child(new_index).get_child(0) as Button, new_index)
+	if button_count == 0:
+		return  # No buttons to select
+
+	var new_index = current_selected_index + direction
+
+	# Wrap around if new_index is out of bounds
+	if new_index < 0:
+		new_index = button_count - 1  # Move to the last item
+	elif new_index >= button_count:
+		new_index = 0  # Move to the first item
+
+	# Select the new button
+	select_button(grid_container.get_child(new_index).get_child(0) as Button, new_index)
 
 func select_button(button: Button, index: int):
 	# If a button is already selected, reset its scale and margins
@@ -85,7 +98,7 @@ func select_button(button: Button, index: int):
 	current_selected_index = index
 	
 	# Tween the new button to be larger and adjust its margins
-	tween_button_scale(button, Vector2(1.65, 1.65))  # Scale up the selected button
+	tween_button_scale(button, Vector2(2.0, 2.0))  # Scale up the selected button
 	adjust_margins_for_selected(button)
 
 func _on_button_pressed(button: Button):
@@ -96,7 +109,7 @@ func _on_button_pressed(button: Button):
 			break
 	if index != -1:
 		select_button(button, index)
-		print(button.name)
+		print(button.name)  # This will now print the description value
 
 func tween_button_scale(button: Button, target_scale: Vector2):
 	# Create a new tween for the button
@@ -114,8 +127,8 @@ func adjust_margins_for_selected(button: Button):
 	var margin_container = button.get_parent() as MarginContainer
 	if margin_container:
 		# Reduce margins for the selected button
-		margin_container.add_theme_constant_override("margin_left", 0)  # Smaller left margin
-		margin_container.add_theme_constant_override("margin_right", 160) # Smaller right margin
+		margin_container.add_theme_constant_override("margin_left", 80)  # Smaller left margin
+		margin_container.add_theme_constant_override("margin_right", 280) # Smaller right margin
 
 func reset_margins(button: Button):
 	# Get the MarginContainer parent of the button
