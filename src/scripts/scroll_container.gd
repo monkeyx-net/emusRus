@@ -16,8 +16,15 @@ var current_selected_index: int = -1
 @onready var grid_container: GridContainer = $GridContainer
 
 func _ready():
-	grid_container.columns = items.size()
+	# Center the GridContainer within the ScrollContainer
 	grid_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	grid_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	grid_container.anchor_left = 0.5
+	grid_container.anchor_right = 0.5
+	grid_container.anchor_top = 0.5
+	grid_container.anchor_bottom = 0.5
+
+	grid_container.columns = items.size()
 	self.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	self.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 
@@ -36,10 +43,20 @@ func _ready():
 
 		button_instance.pressed.connect(_on_button_pressed.bind(button_instance))
 
+		# Create a MarginContainer for each button
 		var margin_container = MarginContainer.new()
-		margin_container.add_theme_constant_override("margin_left", 80)
-		margin_container.add_theme_constant_override("margin_right", 80)
+		margin_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		margin_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		margin_container.add_theme_constant_override("margin_left", 20)
+		margin_container.add_theme_constant_override("margin_right", 20)
+		margin_container.add_theme_constant_override("margin_top", 20)
+		margin_container.add_theme_constant_override("margin_bottom", 20)
 		margin_container.add_child(button_instance)
+
+		# Center the button within the MarginContainer
+		button_instance.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		button_instance.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+
 		grid_container.add_child(margin_container)
 
 	if grid_container.get_child_count() > 0:
@@ -83,9 +100,13 @@ func adjust_margins_for_selected(button: Button):
 	if margin_container:
 		margin_container.add_theme_constant_override("margin_left", 80)
 		margin_container.add_theme_constant_override("margin_right", 280)
+		margin_container.add_theme_constant_override("margin_top", -200)
+		margin_container.add_theme_constant_override("margin_bottom", 50)
 
 func reset_margins(button: Button):
 	var margin_container = button.get_parent() as MarginContainer
 	if margin_container:
 		margin_container.add_theme_constant_override("margin_left", 20)
 		margin_container.add_theme_constant_override("margin_right", 20)
+		margin_container.add_theme_constant_override("margin_top", 20)
+		margin_container.add_theme_constant_override("margin_bottom", 20)
