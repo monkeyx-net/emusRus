@@ -106,7 +106,7 @@ func tween_button_scale(button: Button, target_scale: Vector2):
 		button,
 		"scale",
 		target_scale,
-		1.9  # Duration of the tween
+		0.4  # Duration of the tween
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func adjust_margins_for_selected(button: Button):
@@ -114,8 +114,8 @@ func adjust_margins_for_selected(button: Button):
 	var margin_container = button.get_parent() as MarginContainer
 	if margin_container:
 		# Reduce margins for the selected button
-		margin_container.add_theme_constant_override("margin_left", 20)  # Smaller left margin
-		margin_container.add_theme_constant_override("margin_right", 100) # Smaller right margin
+		margin_container.add_theme_constant_override("margin_left", 0)  # Smaller left margin
+		margin_container.add_theme_constant_override("margin_right", 160) # Smaller right margin
 
 func reset_margins(button: Button):
 	# Get the MarginContainer parent of the button
