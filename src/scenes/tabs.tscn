@@ -1,16 +1,16 @@
 [gd_scene load_steps=16 format=3 uid="uid://cotlnwk1de3o2"]
 
-[ext_resource type="Script" path="res://scripts/tabs.gd" id="1_dai08"]
-[ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_y87yy"]
-[ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="2_m87si"]
-[ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_2pk67"]
-[ext_resource type="Texture2D" uid="uid://6hohjg8ur87n" path="res://assets/graphics/systems/retroarch_inv.svg" id="3_efpsm"]
-[ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_s4j2r"]
-[ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="4_svoj6"]
-[ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="6_fuskr"]
-[ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="8_7470p"]
-[ext_resource type="Texture2D" uid="uid://deea32nm8koq8" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="10_4xi7b"]
-[ext_resource type="FontFile" uid="uid://d0hjgpqa7fyei" path="res://assets/fonts/toys_r_us.ttf" id="12_u8ygd"]
+[ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_jeykb"]
+[ext_resource type="Script" path="res://scripts/tabs.gd" id="2_2xeev"]
+[ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_gflge"]
+[ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_muub3"]
+[ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="5_vko13"]
+[ext_resource type="Texture2D" uid="uid://6hohjg8ur87n" path="res://assets/graphics/systems/retroarch_inv.svg" id="6_lpg7x"]
+[ext_resource type="Texture2D" uid="uid://deea32nm8koq8" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="7_5x7v1"]
+[ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="8_c45qo"]
+[ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="9_mkfuh"]
+[ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="10_x1dqk"]
+[ext_resource type="FontFile" uid="uid://d0hjgpqa7fyei" path="res://assets/fonts/toys_r_us.ttf" id="11_pkggn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ab3o"]
 
@@ -34,8 +34,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_y87yy")
-script = ExtResource("1_dai08")
+theme = ExtResource("1_jeykb")
+script = ExtResource("2_2xeev")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 unique_name_in_owner = true
@@ -46,7 +46,7 @@ anchor_bottom = 0.812963
 grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
-script = ExtResource("3_2pk67")
+script = ExtResource("3_gflge")
 metadata/_edit_use_anchors_ = true
 
 [node name="START" type="SplitContainer" parent="TabContainer"]
@@ -84,7 +84,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/icon_max_width = 64
 text = "EMULATORS R US "
-icon = ExtResource("4_s4j2r")
+icon = ExtResource("4_muub3")
 icon_alignment = 1
 vertical_icon_alignment = 2
 
@@ -93,7 +93,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/icon_max_width = 64
 text = "ES-DE default is ~/ES-DE"
-icon = ExtResource("4_svoj6")
+icon = ExtResource("5_vko13")
 icon_alignment = 1
 vertical_icon_alignment = 2
 
@@ -102,7 +102,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/icon_max_width = 64
 text = "RETROARCH"
-icon = ExtResource("3_efpsm")
+icon = ExtResource("6_lpg7x")
 icon_alignment = 1
 vertical_icon_alignment = 2
 
@@ -196,7 +196,7 @@ CLOUD SYNC LOG"
 [node name="CheckButton" type="CheckButton" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-icon = ExtResource("10_4xi7b")
+icon = ExtResource("7_5x7v1")
 
 [node name="download_button" type="Button" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
 unique_name_in_owner = true
@@ -302,7 +302,7 @@ unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
 text = "BACKUPS"
-icon = ExtResource("6_fuskr")
+icon = ExtResource("8_c45qo")
 
 [node name="backups_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
 unique_name_in_owner = true
@@ -316,26 +316,26 @@ text = "SETUP
 CONFIG
 Do not show other buttons uness done.
 Show spinner finished?"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="backup_2" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "TEST
 CONNECTION"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="Button3" type="Button" parent="TabContainer/BACKUPS/backups_gc"]
 layout_mode = 2
 text = "BACKUP"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="restore_button" type="Button" parent="TabContainer/BACKUPS"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
 text = "RESTORE"
-icon = ExtResource("8_7470p")
+icon = ExtResource("10_x1dqk")
 
 [node name="restore_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
 unique_name_in_owner = true
@@ -347,24 +347,24 @@ columns = 3
 layout_mode = 2
 text = "SETUP
 CONFIG"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="Button2" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
 layout_mode = 2
 text = "TEST
 CONNECTION"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="Button3" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
 layout_mode = 2
 text = "BACKUP"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="Button4" type="Button" parent="TabContainer/BACKUPS/restore_gc"]
 layout_mode = 2
 text = "RESTORE
 rclone config --config=rclone_emu.conf update emusRus_GoogleDrive"
-icon = ExtResource("2_m87si")
+icon = ExtResource("9_mkfuh")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/BACKUPS"]
 layout_mode = 2
@@ -426,7 +426,7 @@ grow_vertical = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("12_u8ygd")
+theme_override_fonts/normal_font = ExtResource("11_pkggn")
 theme_override_font_sizes/normal_font_size = 155
 bbcode_enabled = true
 text = "[color=#f00000]E[/color][color=#0e16bd]M[/color][color=#00ea00]U[/color][color=#f00000]S[/color] [color=#00ea00]'[/color][color=#ff510a]R[/color][color=#00ea00]'[/color] [color=#00ea00]U[/color][color=#f00000]S[/color]"

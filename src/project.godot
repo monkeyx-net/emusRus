@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EMUSRUS"
-run/main_scene="res://tabs.tscn"
+run/main_scene="res://scenes/carousel.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/graphics/emusRus_icon.png"
 config/icon="res://assets/graphics/emusRus_icon.png"

@@ -1,6 +1,6 @@
 extends ScrollContainer
 
-@export var button_template: PackedScene = preload("res://button.tscn")
+@export var button_template: PackedScene = preload("res://scenes/button.tscn")
 
 var items = [
 	{"graphic": "res://assets/graphics/emusRus_icon.png", "description": "EMUSRUS"},

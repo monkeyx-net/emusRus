@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfqonshkdcju8"]
 
-[ext_resource type="Script" path="res://scripts/scroll_container.gd" id="1_uj8kq"]
-[ext_resource type="Texture2D" uid="uid://b01ljb44rhklo" path="res://assets/graphics/retro-gaming-1920-x-1080-wallpaper.jpg" id="1_vpkfr"]
+[ext_resource type="Texture2D" uid="uid://b01ljb44rhklo" path="res://assets/graphics/retro-gaming-1920-x-1080-wallpaper.jpg" id="1_jgyk1"]
+[ext_resource type="Script" path="res://scripts/scroll_container.gd" id="2_apbwf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w4shp"]
-texture = ExtResource("1_vpkfr")
+texture = ExtResource("1_jgyk1")
 modulate_color = Color(1, 0.580392, 1, 0.341176)
 
 [node name="ScrollContainer" type="ScrollContainer"]
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_w4shp")
 vertical_scroll_mode = 0
-script = ExtResource("1_uj8kq")
+script = ExtResource("2_apbwf")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wi8nqwqpg1g3"]
 
-[ext_resource type="Script" path="res://scripts/Control.gd" id="1_7k8s6"]
-[ext_resource type="Texture2D" uid="uid://cxakaqqwrnd3x" path="res://assets/graphics/emusRus.png" id="2_revo7"]
+[ext_resource type="Script" path="res://scripts/Control.gd" id="1_urae8"]
+[ext_resource type="Texture2D" uid="uid://cxakaqqwrnd3x" path="res://assets/graphics/emusRus.png" id="2_h3mxu"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,7 +14,7 @@ offset_right = 1.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7k8s6")
+script = ExtResource("1_urae8")
 
 [node name="FileDialog_Load" type="FileDialog" parent="."]
 title = "Open a File"
@@ -105,7 +105,7 @@ text = "csv/games.csv"
 
 [node name="BezelsRus" type="Sprite2D" parent="."]
 position = Vector2(547, 85)
-texture = ExtResource("2_revo7")
+texture = ExtResource("2_h3mxu")
 
 [node name="Button_Processed" type="Button" parent="."]
 layout_mode = 0
