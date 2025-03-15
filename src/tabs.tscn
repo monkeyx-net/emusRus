@@ -45,13 +45,12 @@ anchor_right = 1.0
 anchor_bottom = 0.812963
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 0
 script = ExtResource("3_2pk67")
 metadata/_edit_use_anchors_ = true
 
 [node name="START" type="SplitContainer" parent="TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/minimum_grab_thickness = 600
 split_offset = 300
@@ -269,6 +268,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fi6a8")
 text = "DETECTED SAVES"
 
 [node name="TabContainer" type="TabContainer" parent="TabContainer/START/Panel2"]
+visible = false
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -293,6 +293,7 @@ metadata/_tab_index = 1
 
 [node name="BACKUPS" type="VBoxContainer" parent="TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

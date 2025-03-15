@@ -3,11 +3,11 @@ extends ScrollContainer
 @export var button_template: PackedScene = preload("res://button.tscn")
 
 var items = [
-	{"graphic": "res://assets/graphics/emusRus_icon.png", "description": "Item 1"},
-	{"graphic": "res://assets/graphics/systems/org.es_de.frontend.svg", "description": "Item 2"},
-	{"graphic": "res://assets/graphics/systems/retroarch_inv.svg", "description": "Item 3"},
-	{"graphic": "res://assets/graphics/systems/batocera-icon.png", "description": "Item 4"},
-	{"graphic": "res://icon.svg", "description": "Item 5"},
+	{"graphic": "res://assets/graphics/emusRus_icon.png", "description": "EMUSRUS"},
+	{"graphic": "res://assets/graphics/systems/org.es_de.frontend.svg", "description": "ES DE"},
+	{"graphic": "res://assets/graphics/systems/retroarch_inv.svg", "description": "RETROARCH"},
+	{"graphic": "res://assets/graphics/systems/batocera-icon.png", "description": "BATOCERA"},
+	{"graphic": "res://icon.svg", "description": "GODOT"},
 ]
 
 var current_selected_button: Button = null
