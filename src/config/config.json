@@ -52,8 +52,8 @@
 			"program_url": ""
 		},
 		"es-de": {
-			"default": "$HOME/.config/es-de",
-			"default_linux": "$HOME/.config/es-de",
+			"default": "$HOME/ES-DE",
+			"default_linux": "$HOME/ES-DE",
 			"logs_folder": "/logs",
 			"media_folder": "/downloaded_media",
 			"roms_folder": "/roms",
