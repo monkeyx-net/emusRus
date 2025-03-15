@@ -46,16 +46,20 @@
 		},
 		"emusrus": {
 			"default": "$HOME/.config/emusrus",
-			"bios_folder": "/run/media/user/DATA/retrodeck/bios",
-			"borders_folder": "/run/media/user/DATA/retrodeck/borders",
-			"logs_folder": "/run/media/user/DATA/retrodeck/logs"
+			"bios_folder": "/run/media/user/DATA/emusrus/bios",
+			"borders_folder": "/run/media/user/DATA/emusrus/borders",
+			"logs_folder": "/run/media/user/DATA/emusrus/logs",
+			"program_url": ""
 		},
 		"es-de": {
+			"default": "$HOME/.config/es-de",
 			"default_linux": "$HOME/.config/es-de",
 			"logs_folder": "/logs",
 			"media_folder": "/downloaded_media",
 			"roms_folder": "/roms",
-			"themes_folder": "/themes"
+			"themes_folder": "/themes",
+			"launch": "ES-DE_x64.AppImage",
+			"program_url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/164503027/download"
 		},
 		"retroarch": {
 			"default": "$HOME/.config/retroarch",
@@ -74,7 +78,10 @@
 			"screenshots_folder": "/screenshots",
 			"states_folder": "/states",
 			"texture_packs_folder": "/texture_packs",
-			"themes_folder": "/themes"
+			"themes_folder": "/themes",
+			"program_url": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch.7z",
+			"nightly_cores_url": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_cores.7z",
+			"cores_url": " https://buildbot.libretro.com/stable/1.20.0/linux/x86_64/RetroArch_cores.7z"
 		},
 		"quick_resume": {
 			"retroarch": true
@@ -100,7 +107,7 @@
 		  "description": "RetroArch (Multi-emulator Frontend)",
 		  "name": "RetroArch",
 		  "url": "#",
-		  "launch": "retroarch",
+		  "launch": "RetroArch-Linux-x86_64.AppImage",
 		  "cli-arg": "--version",
 		  "system": "retroarch",
 		  "properties": [
