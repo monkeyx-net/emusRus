@@ -16,6 +16,18 @@ var current_selected_index: int = -1
 @onready var grid_container: GridContainer = $GridContainer
 
 func _ready():
+	var config_reader = SystemConfig.new()
+	var file_path = "res://config/config.json"
+	if config_reader.load_config_from_file(file_path):
+		print("Configuration loaded successfully!")
+		var abxy_button_swap_citra = config_reader.get_config_value("config/abxy_button_swap/citra", false)
+		print("ABXY Button Swap for Citra: ", abxy_button_swap_citra)
+		var font = config_reader.get_config_value("config/options/font", "1")
+		print("Font: ", font)
+		var es_de_program_url = config_reader.get_config_value("config/es-de/program_url", "")
+		print("ES-DE Program URL: ", es_de_program_url)
+	else:
+		print("Failed to load configuration.")
 	# Center the GridContainer within the ScrollContainer
 	grid_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	grid_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
