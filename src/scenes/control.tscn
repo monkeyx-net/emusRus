@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wi8nqwqpg1g3"]
 
-[ext_resource type="Script" path="res://scripts/Control.gd" id="1_urae8"]
+[ext_resource type="Script" uid="uid://8hh64v5hegwn" path="res://scripts/Control.gd" id="1_urae8"]
 [ext_resource type="Texture2D" uid="uid://cxakaqqwrnd3x" path="res://assets/graphics/emusRus.png" id="2_h3mxu"]
 
 [node name="Control" type="Control"]

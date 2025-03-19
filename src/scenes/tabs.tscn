@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=17 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_jeykb"]
-[ext_resource type="Script" path="res://scripts/tabs.gd" id="2_2xeev"]
-[ext_resource type="Script" path="res://scripts/tab_container.gd" id="3_gflge"]
+[ext_resource type="Script" uid="uid://dmfe2fqem2bo4" path="res://scripts/tabs.gd" id="2_2xeev"]
+[ext_resource type="Script" uid="uid://b35wu4ytc0wen" path="res://scripts/tab_container.gd" id="3_gflge"]
 [ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_muub3"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="5_vko13"]
 [ext_resource type="Texture2D" uid="uid://6hohjg8ur87n" path="res://assets/graphics/systems/retroarch_inv.svg" id="6_lpg7x"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="9_mkfuh"]
 [ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="10_x1dqk"]
 [ext_resource type="FontFile" uid="uid://d0hjgpqa7fyei" path="res://assets/fonts/toys_r_us.ttf" id="11_pkggn"]
+[ext_resource type="Texture2D" uid="uid://b80lf7mntfprf" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_B.png" id="12_gohq7"]
+[ext_resource type="Texture2D" uid="uid://deu7yusp37ka7" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_A.png" id="12_or6a6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ab3o"]
 
@@ -19,17 +21,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2xxn"]
 bg_color = Color(0.054902, 0.152941, 0.568627, 0.356863)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu0l4"]
-bg_color = Color(0.348983, 0.59231, 0.993138, 1)
-
 [node name="Control" type="Control"]
 layout_mode = 3
-anchor_top = 0.178
-anchor_right = 0.968
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -6.24001
-offset_right = 61.4399
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -371,28 +367,47 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "bob"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.810185
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+theme_override_constants/icon_max_width = 128
+icon = ExtResource("12_or6a6")
+expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_cu0l4")
-text = "WELCOME to EMUS R US
-
-- MANUAL FIX
-- SELECT ONE/BOTH
-- LINK/DOWNLOAD
-
-NONE INSTALLED
-LINKS OR DOWNLOAD?"
+[node name="Button2" type="Button" parent="ColorRect"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+icon = ExtResource("12_gohq7")
+expand_icon = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
@@ -404,13 +419,10 @@ unique_name_in_owner = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.202461
-anchor_right = 1.00052
-anchor_bottom = -0.0033557
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 243.0
 grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 2
