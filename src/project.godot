@@ -12,7 +12,7 @@ config_version=5
 
 config/name="EMUSRUS"
 run/main_scene="res://scenes/carousel.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://assets/graphics/emusRus_icon.png"
 config/icon="res://assets/graphics/emusRus_icon.png"
 
@@ -27,5 +27,7 @@ window/size/viewport_height=1080
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/lossless_compression/force_png=true
