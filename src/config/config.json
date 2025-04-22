@@ -106,7 +106,9 @@
 		"retroarch": {
 		  "description": "RetroArch (Multi-emulator Frontend)",
 		  "name": "RetroArch",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "launch": "RetroArch-Linux-x86_64.AppImage",
 		  "cli-arg": "--version",
 		  "system": "retroarch",
@@ -276,7 +278,9 @@
 		"mame": {
 		  "description": "MAME: Multiple Arcade Machine Emulator",
 		  "name": "MAME",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": [
 			"arcade"
 		  ],
@@ -286,7 +290,9 @@
 		"citra": {
 		  "description": "Citra Nintendo 3DS Emulator",
 		  "name": "Citra",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "n3ds",
 		  "ponzu": true,
 		  "launch": "citra-qt",
@@ -301,7 +307,9 @@
 		"ruffle": {
 		  "description": "Flash Games emulator",
 		  "name": "Ruffle",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "flash",
 		  "launch": "ruffle",
 		  "cli-arg": ""
@@ -309,7 +317,9 @@
 		"melonds": {
 		  "description": "MelonDS Nintendo DS Emulator",
 		  "name": "melonds",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "nds",
 		  "launch": "melonDS",
 		  "cli-arg": "--help"
@@ -317,7 +327,9 @@
 		"pcsx2": {
 		  "name": "pcsx2",
 		  "description": "PCSX2 Play Station 2 Emulator",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "ps2",
 		  "launch": "pcsx2-qt",
 		  "cli-arg": "-version",
@@ -331,7 +343,9 @@
 		"duckstation": {
 		  "name": "Duckstation",
 		  "description": "PlayStation Emulator",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "launch": "duckstation-qt",
 		  "cli-arg": "-version",
 		  "system": "psx",
@@ -345,7 +359,9 @@
 		"ppsspp": {
 		  "name": "PPSSPP",
 		  "description": "PPSSPP: PlayStation Portable Emulator",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		"url_windows": "#",
 		  "launch": "PPSSPPSDL",
 		  "cli-arg": "--version",
 		  "system": "psp",
@@ -359,7 +375,9 @@
 		"vita3k": {
 		  "name": "Vita3k",
 		  "description": "Vita3K PSVita Emulator",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "psvita",
 		  "launch": "Vita3K",
 		  "cli-arg": ""
@@ -367,7 +385,9 @@
 		"rpcs3": {
 		  "name": "RPCS3",
 		  "description": "RPCS3 PlayStation 3 Emulator",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "ps3",
 		  "launch": "rpcs3",
 		  "cli-arg": "--version",
@@ -381,7 +401,9 @@
 		"dolphin": {
 		  "name": "Dolphin",
 		  "description": "Dolphin Wii and GameCube Emulator",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "launch": "dolphin-emu-wrapper",
 		  "cli-arg": "--version",
 		  "system": [
@@ -401,7 +423,9 @@
 		"primehack": {
 		  "name": "PrimeHack",
 		  "description": "A fork of Dolphin to enhance Metroid Prime experience",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "launch": "primehack-wrapper",
 		  "cli-arg": "--version",
 		  "system": [
@@ -417,7 +441,9 @@
 		"cemu": {
 		  "description": "Wii U emulator",
 		  "name": "Cemu",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "wiiu",
 		  "launch": "Cemu-wrapper",
 		  "cli-arg": "--version",
@@ -431,7 +457,9 @@
 		"xemu": {
 		  "description": "xemu Xbox Emulator",
 		  "name": "xemu",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "system": "xbox",
 		  "launch": "xemu",
 		  "cli-arg": "--version"
@@ -439,7 +467,9 @@
 		"es-de": {
 		  "description": "ES-DE Emulation Frontend",
 		  "name": "ES-DE",
-		  "url": "#",
+		  "url_linux": "#",
+		  "url_mac": "#",
+		  "url_windows": "#",
 		  "launch": "es-de",
 		  "cli-arg": "--version"
 		}
