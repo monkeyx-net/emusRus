@@ -45,15 +45,16 @@
 			"volume_effects": "10"
 		},
 		"emusrus": {
-			"default": "$HOME/.config/emusrus",
+			"config_folder": "$HOME/.config/emusrus",
+			"config_file": "emusrus_settings.json",
 			"bios_folder": "/run/media/user/DATA/emusrus/bios",
 			"borders_folder": "/run/media/user/DATA/emusrus/borders",
 			"logs_folder": "/run/media/user/DATA/emusrus/logs",
 			"program_url": ""
 		},
 		"es-de": {
-			"default": "$HOME/ES-DE",
-			"default_linux": "$HOME/ES-DE",
+			"config_folder": "$HOME/ES-DE/settings",
+			"config_file": "es_settings.xml",
 			"logs_folder": "/logs",
 			"media_folder": "/downloaded_media",
 			"roms_folder": "/roms",
@@ -62,8 +63,8 @@
 			"program_url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/164503027/download"
 		},
 		"retroarch": {
-			"default": "$HOME/.config/retroarch",
-			"default_linux": "$HOME/.config/retroarch",
+			"config_folder": "$HOME/.config/retroarch",
+			"config_file": "retroarch.cfg",
 			"default_windows": "$HOME/.config/retroarch",
 			"default_android": "$HOME/.config/retroarch",
 			"bios_folder": "/system",
