@@ -120,6 +120,16 @@
 			}
 		  ],
 		  "cores": {
+			"urls_libretro": {
+				"description": "URLs for cores, assets and nightly. Unpack so nightly overwrites? Test",
+				"url_stable_linux": "https://buildbot.libretro.com/stable/1.20.0/linux/x86_64/RetroArch.7z",
+				"url_stable_mac": "#",
+				"url_stable_windows": "#",
+				"url_nightly_linux": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_cores.7z",
+				"url_nightly_mac": "#",
+				"url_nightly_windows": "#",
+				"url_assets": "#"
+			  },
 			"citra_libretro": {
 			  "description": "Nintendo 3DS Libretro Core",
 			  "name": "Citra",
