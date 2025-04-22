@@ -65,8 +65,6 @@
 		"retroarch": {
 			"config_folder": "$HOME/.config/retroarch",
 			"config_file": "retroarch.cfg",
-			"default_windows": "$HOME/.config/retroarch",
-			"default_android": "$HOME/.config/retroarch",
 			"bios_folder": "/system",
 			"borders_folder": "/overlays",
 			"cheats_folder": "/cheats",
@@ -80,9 +78,20 @@
 			"states_folder": "/states",
 			"texture_packs_folder": "/texture_packs",
 			"themes_folder": "/themes",
-			"program_url": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch.7z",
-			"nightly_cores_url": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_cores.7z",
-			"cores_url": " https://buildbot.libretro.com/stable/1.20.0/linux/x86_64/RetroArch_cores.7z"
+			"program_url_stable_linux": "https://buildbot.libretro.com/stable/1.20.0/linux/x86_64/RetroArch.7z",
+			"program_url_stable_mac": "#",
+			"program_url_stable_windows": "#",
+			"program_url_assets": "#"
+		},
+		"retroarch_cores": {
+			"cores_url_nightly_linux": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_cores.7z",
+			"cores_url_nightly_mac": "#",
+			"cores_url_nightly_windows": "#"
+		},
+		"mame": {
+			"program_url_stable_linux": "https://buildbot.libretro.com/stable/1.20.0/linux/x86_64/RetroArch.7z",
+			"program_url_stable_mac": "#",
+			"program_url_stable_windows": "#"
 		},
 		"quick_resume": {
 			"retroarch": true
@@ -107,9 +116,6 @@
 		"retroarch": {
 		  "description": "RetroArch (Multi-emulator Frontend)",
 		  "name": "RetroArch",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "launch": "RetroArch-Linux-x86_64.AppImage",
 		  "cli-arg": "--version",
 		  "system": "retroarch",
@@ -121,16 +127,6 @@
 			}
 		  ],
 		  "cores": {
-			"urls_libretro": {
-				"description": "URLs for cores, assets and nightly. Unpack so nightly overwrites? Test",
-				"url_stable_linux": "https://buildbot.libretro.com/stable/1.20.0/linux/x86_64/RetroArch.7z",
-				"url_stable_mac": "#",
-				"url_stable_windows": "#",
-				"url_nightly_linux": "https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_cores.7z",
-				"url_nightly_mac": "#",
-				"url_nightly_windows": "#",
-				"url_assets": "#"
-			  },
 			"citra_libretro": {
 			  "description": "Nintendo 3DS Libretro Core",
 			  "name": "Citra",
@@ -289,9 +285,6 @@
 		"mame": {
 		  "description": "MAME: Multiple Arcade Machine Emulator",
 		  "name": "MAME",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": [
 			"arcade"
 		  ],
@@ -301,9 +294,6 @@
 		"citra": {
 		  "description": "Citra Nintendo 3DS Emulator",
 		  "name": "Citra",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "n3ds",
 		  "ponzu": true,
 		  "launch": "citra-qt",
@@ -318,9 +308,6 @@
 		"ruffle": {
 		  "description": "Flash Games emulator",
 		  "name": "Ruffle",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "flash",
 		  "launch": "ruffle",
 		  "cli-arg": ""
@@ -328,9 +315,6 @@
 		"melonds": {
 		  "description": "MelonDS Nintendo DS Emulator",
 		  "name": "melonds",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "nds",
 		  "launch": "melonDS",
 		  "cli-arg": "--help"
@@ -338,9 +322,6 @@
 		"pcsx2": {
 		  "name": "pcsx2",
 		  "description": "PCSX2 Play Station 2 Emulator",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "ps2",
 		  "launch": "pcsx2-qt",
 		  "cli-arg": "-version",
@@ -354,9 +335,6 @@
 		"duckstation": {
 		  "name": "Duckstation",
 		  "description": "PlayStation Emulator",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "launch": "duckstation-qt",
 		  "cli-arg": "-version",
 		  "system": "psx",
@@ -370,9 +348,6 @@
 		"ppsspp": {
 		  "name": "PPSSPP",
 		  "description": "PPSSPP: PlayStation Portable Emulator",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		"url_windows": "#",
 		  "launch": "PPSSPPSDL",
 		  "cli-arg": "--version",
 		  "system": "psp",
@@ -386,9 +361,6 @@
 		"vita3k": {
 		  "name": "Vita3k",
 		  "description": "Vita3K PSVita Emulator",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "psvita",
 		  "launch": "Vita3K",
 		  "cli-arg": ""
@@ -396,9 +368,6 @@
 		"rpcs3": {
 		  "name": "RPCS3",
 		  "description": "RPCS3 PlayStation 3 Emulator",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "ps3",
 		  "launch": "rpcs3",
 		  "cli-arg": "--version",
@@ -412,9 +381,6 @@
 		"dolphin": {
 		  "name": "Dolphin",
 		  "description": "Dolphin Wii and GameCube Emulator",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "launch": "dolphin-emu-wrapper",
 		  "cli-arg": "--version",
 		  "system": [
@@ -434,9 +400,6 @@
 		"primehack": {
 		  "name": "PrimeHack",
 		  "description": "A fork of Dolphin to enhance Metroid Prime experience",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "launch": "primehack-wrapper",
 		  "cli-arg": "--version",
 		  "system": [
@@ -452,9 +415,6 @@
 		"cemu": {
 		  "description": "Wii U emulator",
 		  "name": "Cemu",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "wiiu",
 		  "launch": "Cemu-wrapper",
 		  "cli-arg": "--version",
@@ -468,9 +428,6 @@
 		"xemu": {
 		  "description": "xemu Xbox Emulator",
 		  "name": "xemu",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "system": "xbox",
 		  "launch": "xemu",
 		  "cli-arg": "--version"
@@ -478,9 +435,6 @@
 		"es-de": {
 		  "description": "ES-DE Emulation Frontend",
 		  "name": "ES-DE",
-		  "url_linux": "#",
-		  "url_mac": "#",
-		  "url_windows": "#",
 		  "launch": "es-de",
 		  "cli-arg": "--version"
 		}
