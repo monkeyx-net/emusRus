@@ -39,9 +39,6 @@
 		"options": {
 			"font": "1",	
 			"sound_effects": true,
-			"update_check": true,
-			"update_ignore": "",
-			"update_repo": "Cooker",
 			"volume_effects": "10"
 		},
 		"emusrus": {
