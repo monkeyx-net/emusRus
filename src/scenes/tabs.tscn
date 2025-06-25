@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=18 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_jeykb"]
 [ext_resource type="Script" uid="uid://dmfe2fqem2bo4" path="res://scripts/tabs.gd" id="2_2xeev"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6hohjg8ur87n" path="res://assets/graphics/systems/retroarch_inv.svg" id="6_lpg7x"]
 [ext_resource type="Texture2D" uid="uid://deea32nm8koq8" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="7_5x7v1"]
 [ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="8_c45qo"]
+[ext_resource type="Script" uid="uid://b05xvkklwetcr" path="res://scenes/tree.gd" id="8_krva6"]
 [ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="9_mkfuh"]
 [ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="10_x1dqk"]
 [ext_resource type="FontFile" uid="uid://d0hjgpqa7fyei" path="res://assets/fonts/toys_r_us.ttf" id="11_pkggn"]
@@ -41,14 +42,14 @@ anchor_right = 1.0
 anchor_bottom = 0.812963
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 script = ExtResource("3_gflge")
 metadata/_edit_use_anchors_ = true
 
 [node name="START" type="SplitContainer" parent="TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
-theme_override_constants/minimum_grab_thickness = 600
 split_offset = 300
 dragger_visibility = 1
 metadata/_tab_index = 0
@@ -283,9 +284,14 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Tree" type="Tree" parent="TabContainer/SETTINGS"]
+visible = false
+layout_mode = 2
+columns = 4
+script = ExtResource("8_krva6")
 
 [node name="BACKUPS" type="VBoxContainer" parent="TabContainer"]
 unique_name_in_owner = true
@@ -418,6 +424,7 @@ timeout = 30.0
 unique_name_in_owner = true
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
