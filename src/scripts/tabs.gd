@@ -1,9 +1,9 @@
 extends Control
 
 var gameslist_dir = "/home/tim/ES-DE/gamelists"
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	var favorites = find_favorites()
 	save_favorites(favorites)
 	print("Favorite games saved to favorites.xml.")
