@@ -54,7 +54,7 @@
 			"config_file": "es_settings.xml",
 			"logs_folder": "/logs",
 			"media_folder": "/downloaded_media",
-			"roms_folder": "/roms",
+			"roms_folder": "/run/media/tim/DATA/es-de/roms/",
 			"themes_folder": "/themes",
 			"launch": "ES-DE_x64.AppImage",
 			"program_url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/164503027/download"

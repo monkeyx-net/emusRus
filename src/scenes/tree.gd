@@ -2,6 +2,8 @@ extends Tree
 
 func _ready():
 	columns = 4
+	hide_folding = true
+	select_mode = 1
 	# Configure columns
 	set_column_title(0, "System")
 	set_column_title(1, "Path")
