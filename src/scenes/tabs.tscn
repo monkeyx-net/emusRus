@@ -288,9 +288,9 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Tree" type="Tree" parent="TabContainer/SETTINGS"]
-visible = false
 layout_mode = 2
 columns = 4
+column_titles_visible = true
 script = ExtResource("8_krva6")
 
 [node name="BACKUPS" type="VBoxContainer" parent="TabContainer"]
