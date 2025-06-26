@@ -114,6 +114,7 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 		if response.error == OK:
 			var game_info = response.result
 			print(game_info)
+			print (headers)
 		else:
 			print("Error parsing JSON response")
 	else:
