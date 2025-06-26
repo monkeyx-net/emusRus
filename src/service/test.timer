@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup rclone hourly
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=60min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
