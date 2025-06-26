@@ -1,0 +1,10 @@
+[Unit]
+Description=Test Service
+
+[Service]
+Type=simple
+StandardOutput=journal
+ExecStart=/home/tim/bin/backlocal2Google.sh
+
+[Install]
+WantedBy=default.target
