@@ -2,19 +2,34 @@
 
 ![All You R Bezels are Belonging yto Us](src/assets/graphics/emusRus.png)
 
-Add Bezels to your games in ES-DE and other emulators.
+## What it will do.
+The aim of this tool is create a more out of the box eperience for using emulators with my favourite emulator. It will help download emula and set them up with sensible defaults.
 
-## TODO
+## What it will not do
+Provide any copyrighted content including roms or bioses etc. So please DO NOT ask. The answer will be no.
 
-* [ ] Backup/Restore emulator configs
-* [ ] Backup/Restore cores
-* [ ] Backup/Restore favourites
-* [ ] Bezels per system
-* [ ] Bezels per game
-* [ ] Match games listed in dat files
-* [ ] Updates/Tidy bezels
-* [ ] Editable lists in Spreadsheet/table
-* [ ] By resolution
-* [ ] By System Android, PC Windows and Linux
-* [ ] Switch/Choose bezel sets online or local
-* [ ] Batch Convert dimension/sizes?
+### Main Features
+- [ ] Set sensible defaults for all supported emulators
+- [ ] Download/Install ES-DE (Not Android)
+- [ ] Download emulators
+- [ ] Bios checks
+- [ ] Support Linux
+- [ ] Support Windows
+- [ ] Support MacOS
+- [ ] Support Android
+- [ ] Backup/sync configs
+- [ ] Backup/sync game saves
+- [ ] Backup/sync roms, bios etc
+
+
+### Supported Emulators
+- [ ] Retroarch - Best cores for each system
+- [ ] MAME
+- [ ] Dolphin
+- [ ] PPSPP
+
+
+### Bezel Support
+- [ ] Retroarch
+- [ ] MAME
+- [ ] GoDot overlay (systems with no bezel support)
