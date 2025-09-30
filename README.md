@@ -3,7 +3,7 @@
 ![All You R Bezels are Belonging yto Us](src/assets/graphics/emusRus.png)
 
 ## What it will do.
-The aim of this tool is create a more out of the box eperience for using emulators with my favourite emulator. It will help download emula and set them up with sensible defaults.
+The aim of this tool is create a more out of the box eperience for using emulators with my favourite emulator. It will help download emulators and set them up with sensible defaults. It will support new and existing installations of ES-DE.
 
 ## What it will not do
 Provide any copyrighted content including roms or bioses etc. So please DO NOT ask. The answer will be no.
