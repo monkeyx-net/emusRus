@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_muub3"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="5_vko13"]
 [ext_resource type="Texture2D" uid="uid://6hohjg8ur87n" path="res://assets/graphics/systems/retroarch_inv.svg" id="6_lpg7x"]
-[ext_resource type="Texture2D" uid="uid://deea32nm8koq8" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="7_5x7v1"]
-[ext_resource type="Texture2D" uid="uid://wv51ocaxvy1p" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="8_c45qo"]
+[ext_resource type="Texture2D" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="7_5x7v1"]
+[ext_resource type="Texture2D" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="8_c45qo"]
 [ext_resource type="Script" uid="uid://b05xvkklwetcr" path="res://scenes/tree.gd" id="8_krva6"]
 [ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="9_mkfuh"]
-[ext_resource type="Texture2D" uid="uid://dudgv0s5bkfde" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="10_x1dqk"]
-[ext_resource type="FontFile" uid="uid://d0hjgpqa7fyei" path="res://assets/fonts/toys_r_us.ttf" id="11_pkggn"]
+[ext_resource type="Texture2D" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="10_x1dqk"]
+[ext_resource type="FontFile" path="res://assets/fonts/toys_r_us.ttf" id="11_pkggn"]
 [ext_resource type="Texture2D" uid="uid://b80lf7mntfprf" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_B.png" id="12_gohq7"]
 [ext_resource type="Texture2D" uid="uid://deu7yusp37ka7" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_A.png" id="12_or6a6"]
 
@@ -266,7 +266,7 @@ text = "DETECTED SAVES"
 
 [node name="TabContainer" type="TabContainer" parent="TabContainer/START/Panel2"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -4.0
@@ -432,7 +432,7 @@ offset_bottom = 243.0
 grow_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
