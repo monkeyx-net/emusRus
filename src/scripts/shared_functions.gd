@@ -21,9 +21,9 @@ func _ready() -> void:
 		execute_command("uname", ["-n"], true)
 		HOSTNAME = result["output"]
 		execute_command("lsb_release", ["-ds"], true)
-		OS_DISTRO = result["output"].replace ('"', '')
+		OS_DISTRO = OS.get_name()# result["output"].replace ('"', '')
 		execute_command("lsb_release", ["-rs"], true)
-		OS_VERSION = result["output"]
+		OS_VERSION = OS.get_version()# result["output"]
 	# Get EMUSRUS Information
 	
 	# Get RetroArch Information
