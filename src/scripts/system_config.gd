@@ -3,7 +3,7 @@ class_name SystemConfig
 
 var config: Dictionary = {}
 var system_name: String
-var path: String
+#var path: String
 var prog_url: String
 var log_folder: String
 var launch: String
