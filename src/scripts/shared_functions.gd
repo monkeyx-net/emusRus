@@ -33,13 +33,6 @@ func _ready() -> void:
 		#RA_PATH = DEFAULT_RA_PATH_LINUX.get_base_dir()
 	#else:
 		#DEFAULT_RA_PATH_LINUX=""
-
-func find_app() -> Dictionary:
-	pass
-	var bob: Dictionary
-	# Pass param system to look for config file in known locations ie~/.local etc
-	# system_name:true/false
-	return bob
 	
 func button_func(button: Button, grid: GridContainer) -> void:
 	match button.name:
