@@ -15,23 +15,24 @@ var DEFAULT_RA_PATH_ANDROID =  ""
 signal command_finished(result: String)
 
 func _ready() -> void:
-	OS_TYPE = OS.get_name();
-	if OS_TYPE != "Windows":
-		# Get Basic Host Information
-		execute_command("uname", ["-n"], true)
-		HOSTNAME = result["output"]
-		execute_command("lsb_release", ["-ds"], true)
-		OS_DISTRO = OS.get_name()# result["output"].replace ('"', '')
-		execute_command("lsb_release", ["-rs"], true)
-		OS_VERSION = OS.get_version()# result["output"]
-	# Get EMUSRUS Information
-	
-	# Get RetroArch Information
-	DEFAULT_RA_PATH_LINUX = OS.get_environment("HOME") + "/.config/retroarch/retroarch.cfg"
-	if FileAccess.file_exists(DEFAULT_RA_PATH_LINUX):
-		RA_PATH = DEFAULT_RA_PATH_LINUX.get_base_dir()
-	else:
-		DEFAULT_RA_PATH_LINUX=""
+	pass
+	#OS_TYPE = OS.get_name();
+	#if OS_TYPE != "Windows":
+		## Get Basic Host Information
+		#execute_command("uname", ["-n"], true)
+		#HOSTNAME = result["output"]
+		#execute_command("lsb_release", ["-ds"], true)
+		#OS_DISTRO = OS.get_name()# result["output"].replace ('"', '')
+		#execute_command("lsb_release", ["-rs"], true)
+		#OS_VERSION = OS.get_version()# result["output"]
+	## Get EMUSRUS Information
+	#
+	## Get RetroArch Information
+	#DEFAULT_RA_PATH_LINUX = OS.get_environment("HOME") + "/.config/retroarch/retroarch.cfg"
+	#if FileAccess.file_exists(DEFAULT_RA_PATH_LINUX):
+		#RA_PATH = DEFAULT_RA_PATH_LINUX.get_base_dir()
+	#else:
+		#DEFAULT_RA_PATH_LINUX=""
 
 func find_app() -> Dictionary:
 	pass

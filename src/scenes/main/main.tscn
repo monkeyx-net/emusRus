@@ -119,6 +119,7 @@ text = "ES-DE etc"
 horizontal_alignment = 1
 
 [node name="ItemList" type="ItemList" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer2/ESDEPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.05
@@ -127,16 +128,8 @@ anchor_bottom = 1.0
 offset_top = -0.40000153
 grow_horizontal = 2
 grow_vertical = 2
-item_count = 4
 max_columns = 3
 fixed_column_width = 200
-item_0/text = "ES_DE VERSION:"
-item_0/selectable = false
-item_1/text = "None"
-item_1/selectable = false
-item_2/text = "INSTALL"
-item_3/text = "\\todo\\path"
-item_3/selectable = false
 
 [node name="EMULATORS" type="MarginContainer" parent="Panel/MarginContainer/TabContainer"]
 visible = false
