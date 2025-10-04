@@ -4,8 +4,9 @@ static var jsetting: JsonSettings
 var settings_data: Dictionary = {}
 var settings_path: String = "res://config/settings.json"
 var xml_settings_data: Dictionary = {}
-var home_path := OS.get_environment("USERPROFILE") if OS.has_feature("windows") else OS.get_environment("HOME")
-var esde_settings: String = home_path + "/ES-DE/settings/es_settings.xml"
+var home_path: String = OS.get_environment("USERPROFILE")  if OS.has_feature("windows") else OS.get_environment("HOME")
+var esde_path: String = home_path + "/ES-DE/"
+var esde_settings: String = esde_path + "settings/es_settings.xml"
 
 var application: Dictionary:
 	get: return settings_data.get("emusrus", {})    
@@ -18,12 +19,12 @@ var application_version: String:
 	set(value):
 		application["version"] = value
 		save_settings()
-var param: Array = ["--version"]
 
 var esde_installed: bool: 
 	get: return FileAccess.file_exists(esde_settings)
 
 func esde_version() -> Array:
+	var param: Array = ["--version"]
 	var output: Array = []
 	OS.execute(home_path + "/Applications/ES-DE_x64.AppImage", param, output, true)
 	return output
@@ -34,8 +35,8 @@ func _init():
 	if esde_installed:
 		load_xml_settings(esde_settings)
 	else:
-		push_error ("Error loading %s", esde_settings)
-	
+		print ("Error loading ", esde_settings)
+
 func load_xml_settings(xml_path: String) -> bool:
 	if not FileAccess.file_exists(xml_path):
 		push_error("XML settings file not found: " + xml_path)
@@ -121,6 +122,14 @@ func get_xml_string(setting_name: String, default: String = "") -> String:
 
 func get_rom_directory() -> String:
 	return get_xml_string("ROMDirectory", "")
+
+func get_theme_directory() -> String:
+	var theme_dir = get_xml_string("UserThemeDirectory", "")
+	return esde_path + "themes" if theme_dir == "" else theme_dir
+
+func get_media_directory() -> String:
+	var media_dir = get_xml_string("MediaDirectory", "")
+	return esde_path + "downloaded_media" if media_dir == "" else media_dir
 
 func get_theme() -> String:
 	return get_xml_string("Theme", "")
