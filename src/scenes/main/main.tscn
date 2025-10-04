@@ -1,0 +1,171 @@
+[gd_scene load_steps=9 format=3 uid="uid://i0iwiuv7bxd1"]
+
+[ext_resource type="Theme" uid="uid://cj2nwdww8ixx2" path="res://themes/default.tres" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://cp72766cpskhs" path="res://scenes/main/main.gd" id="2_hujxm"]
+[ext_resource type="Script" uid="uid://hoi4x55fmbb2" path="res://scenes/main/scripts/tab_container.gd" id="2_iuonh"]
+[ext_resource type="Texture2D" uid="uid://cwy5k5m2mew65" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_LT.png" id="3_k2fmo"]
+[ext_resource type="Script" uid="uid://b4a0knu7uk30p" path="res://scenes/main/scripts/item_list.gd" id="3_ow5a4"]
+[ext_resource type="Script" uid="uid://bucai2pismp6m" path="res://scenes/main/texture_button.gd" id="4_l3cfh"]
+[ext_resource type="Texture2D" uid="uid://boyhiehdvwybg" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_RT.png" id="5_6q06x"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6q06x"]
+color = Color(0.4392157, 0.9607843, 0, 1)
+thickness = 10
+vertical = true
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 22.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hyk8p")
+script = ExtResource("2_hujxm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/icon_separation = 25
+current_tab = 0
+script = ExtResource("2_iuonh")
+
+[node name="ES-DE" type="MarginContainer" parent="Panel/MarginContainer/TabContainer"]
+layout_mode = 2
+tooltip_text = "Manage ES-DE"
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/TabContainer/ES-DE"]
+layout_mode = 2
+
+[node name="SplitContainer" type="SplitContainer" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer"]
+layout_mode = 2
+theme_override_constants/minimum_grab_thickness = 10
+theme_override_constants/autohide = 0
+theme_override_styles/split_bar_background = SubResource("StyleBoxLine_6q06x")
+split_offset = 300
+touch_dragger_enabled = true
+drag_area_highlight_in_editor = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_right = 147.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "ES-DE Settings"
+horizontal_alignment = 1
+
+[node name="ESDEItemList" type="ItemList" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.035
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.41999817
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 3
+item_0/text = "BASIC INFO"
+item_1/text = "ADVANCED INFO"
+item_2/text = "BACKUP"
+script = ExtResource("3_ow5a4")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer"]
+layout_mode = 2
+
+[node name="ESDEPanel" type="Panel" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer2/ESDEPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -773.5
+offset_right = 791.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "ES-DE etc"
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="Panel/MarginContainer/TabContainer/ES-DE/MarginContainer/SplitContainer/MarginContainer2/ESDEPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.40000153
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 4
+max_columns = 3
+fixed_column_width = 200
+item_0/text = "ES_DE VERSION:"
+item_0/selectable = false
+item_1/text = "None"
+item_1/selectable = false
+item_2/text = "INSTALL"
+item_3/text = "\\todo\\path"
+item_3/selectable = false
+
+[node name="EMULATORS" type="MarginContainer" parent="Panel/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+tooltip_text = "Manage ES-DE"
+metadata/_tab_index = 1
+
+[node name="SETTINGS" type="MarginContainer" parent="Panel/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+tooltip_text = "Manage ES-DE"
+metadata/_tab_index = 2
+
+[node name="LeftTextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 100.0
+texture_normal = ExtResource("3_k2fmo")
+stretch_mode = 4
+script = ExtResource("4_l3cfh")
+
+[node name="RightTextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_6q06x")
+stretch_mode = 4
+script = ExtResource("4_l3cfh")

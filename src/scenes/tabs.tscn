@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cotlnwk1de3o2"]
+[gd_scene load_steps=14 format=3 uid="uid://cotlnwk1de3o2"]
 
 [ext_resource type="Theme" uid="uid://cclle0dpqo4th" path="res://tabs.tres" id="1_jeykb"]
 [ext_resource type="Script" uid="uid://dmfe2fqem2bo4" path="res://scripts/tabs.gd" id="2_2xeev"]
@@ -6,12 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://d36eo8k0b53u1" path="res://assets/graphics/emusRus_icon.png" id="4_muub3"]
 [ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="5_vko13"]
 [ext_resource type="Texture2D" uid="uid://6hohjg8ur87n" path="res://assets/graphics/systems/retroarch_inv.svg" id="6_lpg7x"]
-[ext_resource type="Texture2D" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-bolt.svg" id="7_5x7v1"]
-[ext_resource type="Texture2D" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-up.svg" id="8_c45qo"]
 [ext_resource type="Script" uid="uid://b05xvkklwetcr" path="res://scenes/tree.gd" id="8_krva6"]
 [ext_resource type="Texture2D" uid="uid://cvs3spcpmdlfa" path="res://icon.svg" id="9_mkfuh"]
-[ext_resource type="Texture2D" path="res://assets/fonts/fontawesome-free-6.6.0-desktop/svgs/solid/cloud-arrow-down.svg" id="10_x1dqk"]
-[ext_resource type="FontFile" path="res://assets/fonts/toys_r_us.ttf" id="11_pkggn"]
 [ext_resource type="Texture2D" uid="uid://b80lf7mntfprf" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_B.png" id="12_gohq7"]
 [ext_resource type="Texture2D" uid="uid://deu7yusp37ka7" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_A.png" id="12_or6a6"]
 
@@ -42,13 +38,12 @@ anchor_right = 1.0
 anchor_bottom = 0.812963
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 script = ExtResource("3_gflge")
 metadata/_edit_use_anchors_ = true
 
 [node name="START" type="SplitContainer" parent="TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 split_offset = 300
 dragger_visibility = 1
@@ -193,7 +188,6 @@ CLOUD SYNC LOG"
 [node name="CheckButton" type="CheckButton" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-icon = ExtResource("7_5x7v1")
 
 [node name="download_button" type="Button" parent="TabContainer/START/Panel2/status_margin/emusrus_vbox/GridContainer2"]
 unique_name_in_owner = true
@@ -284,6 +278,7 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="SETTINGS" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -304,7 +299,6 @@ unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
 text = "BACKUPS"
-icon = ExtResource("8_c45qo")
 
 [node name="backups_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
 unique_name_in_owner = true
@@ -337,7 +331,6 @@ unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
 text = "RESTORE"
-icon = ExtResource("10_x1dqk")
 
 [node name="restore_gc" type="GridContainer" parent="TabContainer/BACKUPS"]
 unique_name_in_owner = true
@@ -445,7 +438,6 @@ grow_vertical = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("11_pkggn")
 theme_override_font_sizes/normal_font_size = 155
 bbcode_enabled = true
 text = "[color=#f00000]E[/color][color=#0e16bd]M[/color][color=#00ea00]U[/color][color=#f00000]S[/color] [color=#00ea00]'[/color][color=#ff510a]R[/color][color=#00ea00]'[/color] [color=#00ea00]U[/color][color=#f00000]S[/color]"

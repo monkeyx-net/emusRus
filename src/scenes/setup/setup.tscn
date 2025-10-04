@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvodhgfcb4slh"]
+
+[ext_resource type="Texture2D" uid="uid://cxakaqqwrnd3x" path="res://assets/graphics/emusRus.png" id="1_ffqec"]
+[ext_resource type="Texture2D" uid="uid://c52gya30ywtxx" path="res://assets/graphics/systems/org.es_de.frontend.svg" id="2_fnf1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnf1q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Setup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fnf1q")
+metadata/_edit_use_anchors_ = true
+
+[node name="EmusRus" type="Sprite2D" parent="Panel"]
+position = Vector2(877, 111)
+texture = ExtResource("1_ffqec")
+
+[node name="IntroLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 211.0
+offset_right = 1255.0
+offset_bottom = 319.0
+text = "Welcome.
+
+As this is the first time you have run this utility.  No ES-DE detetcted
+
+Please select setup method. If you have not have ES-DE or emulators installed. "
+metadata/_edit_use_anchors_ = true
+
+[node name="NewInstalllButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 378.0
+offset_right = 1145.0
+offset_bottom = 438.0
+theme_override_constants/icon_max_width = 45
+text = "ES-DE INSTALLATION"
+icon = ExtResource("2_fnf1q")
+
+[node name="ExistingButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 461.0
+offset_right = 1144.0
+offset_bottom = 521.0
+theme_override_constants/icon_max_width = 45
+disabled = true
+text = "MANAGE EXISTING ES-DE"
+icon = ExtResource("2_fnf1q")
