@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boyhiehdvwybg"
-path="res://.godot/imported/XboxSeriesX_RT.png-6db33d501676a4a7411dd62ecc9094f6.ctex"
+uid="uid://cldp4pfkwq1eo"
+path="res://.godot/imported/org.gtk.IconBrowser4.png-c9e609db3bf8d2631fab30c041c3e38b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_RT.png"
-dest_files=["res://.godot/imported/XboxSeriesX_RT.png-6db33d501676a4a7411dd62ecc9094f6.ctex"]
+source_file="res://assets/graphics/org.gtk.IconBrowser4.png"
+dest_files=["res://.godot/imported/org.gtk.IconBrowser4.png-c9e609db3bf8d2631fab30c041c3e38b.ctex"]
 
 [params]
 

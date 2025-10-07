@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EMUSRUS"
-run/main_scene="res://scenes/carousel.tscn"
+run/main_scene="uid://i0iwiuv7bxd1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="res://assets/graphics/emusRus_icon.png"
 config/icon="res://assets/graphics/emusRus_icon.png"
@@ -19,6 +19,7 @@ config/icon="res://assets/graphics/emusRus_icon.png"
 [autoload]
 
 SharedFunctions="*res://scripts/shared_functions.gd"
+JsonSettings="*res://config/scripts/json_settings.gd"
 
 [display]
 
