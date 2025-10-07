@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://i0iwiuv7bxd1"]
 
 [ext_resource type="Theme" uid="uid://cj2nwdww8ixx2" path="res://themes/default.tres" id="1_hyk8p"]
-[ext_resource type="Script" uid="uid://cp72766cpskhs" path="res://scenes/main/main.gd" id="2_hujxm"]
+[ext_resource type="Script" uid="uid://cp72766cpskhs" path="res://scenes/main/scripts/main.gd" id="2_hujxm"]
 [ext_resource type="Script" uid="uid://hoi4x55fmbb2" path="res://scenes/main/scripts/tab_container.gd" id="2_iuonh"]
 [ext_resource type="Texture2D" uid="uid://cwy5k5m2mew65" path="res://assets/graphics/icons/Xelu_Free_Controller&Key_Prompts/Xbox Series/XboxSeriesX_LT.png" id="3_k2fmo"]
 [ext_resource type="Script" uid="uid://b4a0knu7uk30p" path="res://scenes/main/scripts/item_list.gd" id="3_ow5a4"]

@@ -16,8 +16,10 @@ func _ready():
 	print("ROM Directory: ", rom_dir)
 	print("Theme: ", es_theme)
 	print("Debug Mode: ", debug_mode)
-	
-		
+	# move to shared functions
+	var fresult = SharedFunctions.find_file_in_directory("/home/tim/", "ES-DE_x64.AppImage")
+	print (fresult)
+
 func _on_item_selected(index: int):
 	match index:
 		0:
