@@ -17,6 +17,7 @@ Provide any copyrighted content including roms or bioses etc. So please DO NOT a
 - [ ] Support Windows
 - [ ] Support MacOS
 - [ ] Support Android
+- [ ] Create custom playlists/collections
 - [ ] Backup/sync configs
 - [ ] Backup/sync game saves
 - [ ] Backup/sync roms, bios etc
