@@ -1,6 +1,6 @@
 extends Node
+class_name SharedFunctions
 
-# make json config for these? 
 const ESDE_ACTIVE := true
 const RA_ACTIVE := true
 var result = {}

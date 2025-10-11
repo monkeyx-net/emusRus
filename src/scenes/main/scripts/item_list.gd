@@ -1,5 +1,7 @@
 extends ItemList
 
+var json_settings:= JsonSettings.new()
+
 func _ready() -> void:
 	# set focus to first item in Item List
 	%ESDEItemList.grab_focus()
@@ -8,36 +10,18 @@ func _ready() -> void:
 	%ItemList.max_columns = 3
 	%ItemList.fixed_column_width = 450
 	%ItemList.same_column_width = true
-	#%ItemList.add_item("ES DE Installed: ", null,false)
-	#%ItemList.add_item(str(JsonSettings.esde_installed),null,false)
-	#%ItemList.add_item("Install",null,false)
-	#%ItemList.add_item("ES DE Version: ", null,false)
-	#%ItemList.add_item(str(JsonSettings.esde_version()),null,false)
-	#%ItemList.add_item("",null,false)
-	#%ItemList.add_item("ES DE Settings found: ", null,false)
-	#%ItemList.add_item(str(JsonSettings.esde_installed),null,false)
-	#%ItemList.add_item("",null,false)
-	#%ItemList.add_item("ES DE Rom Folder: ", null,false)
-	#%ItemList.add_item(JsonSettings.get_rom_directory(),null,false)
-	#%ItemList.add_item("",null,false)
-	#%ItemList.add_item("ES DE Theme Folder: ", null,false)
-	#%ItemList.add_item(str(JsonSettings.esde_installed),null,false)
-	#%ItemList.add_item("",null,false)
-	#%ItemList.add_item("ES DE Media Folder:", null,false)
-	#%ItemList.add_item(str(JsonSettings.esde_installed),null,false)
-	#%ItemList.add_item("",null,false)
 	var items = [
-		["ES-DE Installed: ", str(JsonSettings.esde_installed), "Install"],
-		["ES-DE Version: ", str(JsonSettings.esde_version()), ""],
-		["ES-DE Settings Found: ", str(JsonSettings.esde_installed), ""],
-		["ES-DE Settings Path: ", JsonSettings.esde_settings, ""],
-		["ES-DE Rom Folder: ", JsonSettings.get_rom_directory(), ""],
-		["ES-DE Theme Folder: ", JsonSettings.get_theme_directory(), ""],
-		["ES-DE Media Folder: ", JsonSettings.get_media_directory(), ""]
+		["ES-DE Installed: ", str(json_settings.esde_installed), "Install"],
+		["ES-DE Version: ", str(json_settings.esde_version()), ""],
+		["ES-DE Settings Found: ", str(json_settings.esde_installed), ""],
+		["ES-DE Settings Path: ", json_settings.esde_settings, ""],
+		["ES-DE Rom Folder: ", json_settings.get_rom_directory(), ""],
+		["ES-DE Theme Folder: ", json_settings.get_theme_directory(), ""],
+		["ES-DE Current Theme: ", json_settings.get_theme(), ""],
+		["ES-DE Media Folder: ", json_settings.get_media_directory(), ""]
 	]
-	
-	create_info(%ItemList, items)
 
+	create_info(%ItemList, items)
 
 func create_info(item_list: ItemList, items: Array) -> void:
 	item_list.clear()

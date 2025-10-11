@@ -1,12 +1,14 @@
 extends Node
+class_name JsonSettings
 
-static var jsetting: JsonSettings
+var shared_functions:= SharedFunctions.new()
 var settings_data: Dictionary = {}
 var settings_path: String = "res://config/settings.json"
 var xml_settings_data: Dictionary = {}
 var home_path: String = OS.get_environment("USERPROFILE")  if OS.has_feature("windows") else OS.get_environment("HOME")
 var esde_path: String = home_path + "/ES-DE/"
 var esde_settings: String = esde_path + "settings/es_settings.xml"
+var _config_data: Dictionary = {}
 
 var application: Dictionary:
 	get: return settings_data.get("emusrus", {})    
@@ -19,49 +21,44 @@ var application_version: String:
 	set(value):
 		application["version"] = value
 		save_settings()
-
 var esde_installed: bool: 
 	get: return FileAccess.file_exists(esde_settings)
-
-func esde_version() -> Array:
-	var param: Array = ["--version"]
-	var output: Array = []
-	OS.execute(home_path + "/Applications/ES-DE_x64.AppImage", param, output, true)
-	return output
-
+	
 func _init():
-	jsetting = self
 	load_settings()
+	load_config()
 	if esde_installed:
 		load_xml_settings(esde_settings)
 	else:
 		print ("Error loading ", esde_settings)
 
+func esde_version() -> String:
+	var param: Array = ["--version"]
+	var output: Array = []
+	var fresult = shared_functions.find_file_in_directory("/home/tim/", "ES-DE_x64.AppImage")
+	OS.execute(fresult, param, output, true)
+	var version: String = str(output).replace('"', '').replace('[', '').replace(']', '').replace('\\n', '')
+	return version
+
 func load_xml_settings(xml_path: String) -> bool:
 	if not FileAccess.file_exists(xml_path):
 		push_error("XML settings file not found: " + xml_path)
 		return false
-	
 	var file = FileAccess.open(xml_path, FileAccess.READ)
 	if file == null:
 		push_error("Failed to open XML settings file: Error " + str(FileAccess.get_open_error()))
 		return false
-	
 	var xml_content = file.get_as_text()
 	file.close()
-	
 	return parse_xml_settings(xml_content)
 
 func parse_xml_settings(xml_content: String) -> bool:
 	xml_settings_data.clear()
-	
 	var lines = xml_content.split("\n")
-	
 	for line in lines:
 		line = line.strip_edges()
 		if line.is_empty() or not line.begins_with("<"):
 			continue
-		# Parse bool elements
 		if line.begins_with("<bool "):
 			var name_start = line.find("name=\"") + 6
 			var name_end = line.find("\"", name_start)
@@ -71,8 +68,6 @@ func parse_xml_settings(xml_content: String) -> bool:
 				var setting_name = line.substr(name_start, name_end - name_start)
 				var value_str = line.substr(value_start, value_end - value_start)
 				xml_settings_data[setting_name] = value_str.to_lower() == "true"
-		
-		# Parse int elements
 		elif line.begins_with("<int "):
 			var name_start = line.find("name=\"") + 6
 			var name_end = line.find("\"", name_start)
@@ -82,8 +77,6 @@ func parse_xml_settings(xml_content: String) -> bool:
 				var setting_name = line.substr(name_start, name_end - name_start)
 				var value_str = line.substr(value_start, value_end - value_start)
 				xml_settings_data[setting_name] = value_str.to_int()
-		
-		# Parse string elements
 		elif line.begins_with("<string "):
 			var name_start = line.find("name=\"") + 6
 			var name_end = line.find("\"", name_start)
@@ -94,11 +87,9 @@ func parse_xml_settings(xml_content: String) -> bool:
 				var setting_name = line.substr(name_start, name_end - name_start)
 				var value = line.substr(value_start, value_end - value_start)
 				xml_settings_data[setting_name] = value
-	
 	print("XML settings loaded successfully. Total settings: " + str(xml_settings_data.size()))
 	return true
 
-# Helper methods for XML settings
 func get_xml_setting(setting_name: String, default = null):
 	return xml_settings_data.get(setting_name, default)
 
@@ -121,7 +112,8 @@ func get_xml_string(setting_name: String, default: String = "") -> String:
 	return default
 
 func get_rom_directory() -> String:
-	return get_xml_string("ROMDirectory", "")
+	var rom_dir = get_xml_string("ROMDirectory", "")
+	return esde_path + "Roms" if rom_dir == "" else rom_dir
 
 func get_theme_directory() -> String:
 	var theme_dir = get_xml_string("UserThemeDirectory", "")
@@ -142,40 +134,46 @@ func get_sound_volume() -> int:
 
 func load_settings() -> bool:
 	var file_path = settings_path
+	var file: FileAccess
+	var json_text: String
+	var json: JSON
+	var parse_result: int
+	var error_code: int
+	var error_message: String
+	var error_line: int
+	
 	if not FileAccess.file_exists(file_path):
 		push_error("Settings file not found: " + file_path)
-		#create_default_settings()
 		return false
-	var file = FileAccess.open(file_path, FileAccess.READ)
+	file = FileAccess.open(file_path, FileAccess.READ)
 	if file == null:
-		push_error("Failed to open settings file: Error " + str(FileAccess.get_open_error()))
+		error_code = FileAccess.get_open_error()
+		push_error("Failed to open settings file: Error " + str(error_code))
 		return false
-	
-	var json_text = file.get_as_text()
+	json_text = file.get_as_text()
 	file.close()
-	var json = JSON.new()
-	var error = json.parse(json_text)
-	
-	if error != OK:
-		push_error("JSON Parse Error: " + json.get_error_message() + " at line " + str(json.get_error_line()))
+	json = JSON.new()
+	parse_result = json.parse(json_text)
+	if parse_result != OK:
+		error_message = json.get_error_message()
+		error_line = json.get_error_line()
+		push_error("JSON Parse Error: " + error_message + " at line " + str(error_line))
 		return false
-	
 	settings_data = json.get_data()
 	print("Settings loaded successfully from: " + file_path)
 	return true
 
 func save_settings() -> bool:
 	var file = FileAccess.open(settings_path, FileAccess.WRITE)	
+	var json_string = JSON.stringify(settings_data, "\t")
 	if file == null:
 		push_error("Failed to open settings.json for writing")
 		return false
-	var json_string = JSON.stringify(settings_data, "\t")
 	file.store_string(json_string)
 	file.close()
 	print("Settings saved successfully")
 	return true
 
-# Helper methods for specific settings
 func get_option(options_value: String) -> String:
 	var options = application.get("options", {})
 	return options.get(options_value, "")
@@ -285,9 +283,118 @@ func encrypt_data(crypto: Crypto, keypair: CryptoKey, message: String) -> String
 	return Marshalls.raw_to_base64(ciphertext)
 
 func decrypt_data(crypto: Crypto, keypair: CryptoKey, encrypted_token: PackedByteArray) -> String:
+	var decrypted_bytes = crypto.decrypt(keypair, encrypted_token)
+	var decrypted_message = decrypted_bytes.get_string_from_utf8()
 	if encrypted_token.is_empty():
 		push_error("No data to decrypt")
 		return "Error"
-	var decrypted_bytes = crypto.decrypt(keypair, encrypted_token)
-	var decrypted_message = decrypted_bytes.get_string_from_utf8()
 	return decrypted_message
+
+func parse_from_text(config_text: String) -> bool:
+	var lines = config_text.split("\n")
+	for line in lines:
+		line = line.strip_edges()
+		if line.is_empty() or line.begins_with("#"):
+			continue
+		# Parse key = value pairs
+		if "=" in line:
+			var parts = line.split("=", false, 1)
+			if parts.size() == 2:
+				var key = parts[0].strip_edges()
+				var value = parts[1].strip_edges().trim_prefix("\"").trim_suffix("\"")
+				_config_data[key] = value
+	return true
+
+func get_value(key: String, default: String = "") -> String:
+	return _config_data.get(key, default)
+
+func get_bool(key: String, default: bool = false) -> bool:
+	var value = get_value(key, "")
+	return value == "true" if value == "true" or value == "false" else default
+
+func get_int(key: String, default: int = 0) -> int:
+	var value = get_value(key, "")
+	return value.to_int() if value.is_valid_int() else default
+
+func get_float(key: String, default: float = 0.0) -> float:
+	var value = get_value(key, "")
+	return value.to_float() if value.is_valid_float() else default
+
+func set_value(key: String, value: String) -> void:
+	_config_data[key] = value
+
+func set_bool(key: String, value: bool) -> void:
+	_config_data[key] = "true" if value else "false"
+
+func set_int(key: String, value: int) -> void:
+	_config_data[key] = str(value)
+
+func set_float(key: String, value: float) -> void:
+	_config_data[key] = str(value)
+
+# Convert to configuration file format
+func to_config_text() -> String:
+	var output: PackedStringArray = []
+	
+	for key in _config_data.keys():
+		var value = _config_data[key]
+		if " " in value or value.is_empty():
+			output.append('%s = "%s"' % [key, value])
+		else:
+			output.append('%s = %s' % [key, value])
+	
+	return "\n".join(output)
+
+func save_to_file(file_path: String) -> bool:
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file:
+		file.store_string(to_config_text())
+		file.close()
+		return true
+	return false
+
+func load_from_file(file_path: String) -> bool:
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file:
+		var content = file.get_as_text()
+		file.close()
+		return parse_from_text(content)
+	return false
+
+func get_all_data() -> Dictionary:
+	return _config_data.duplicate()
+
+func has_key(key: String) -> bool:
+	return _config_data.has(key)
+
+func remove_key(key: String) -> bool:
+	return _config_data.erase(key)
+
+func clear() -> void:
+	_config_data.clear()
+
+func load_config(file_path: String = "/home/tim/Applications/RetroArch-Linux-x86_64.AppImage.home/.config/retroarch/retroarch.cfg") -> bool:
+	_config_data.clear()
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if not file:
+		push_error("Failed to open config file: " + file_path)
+		return false
+	
+	while file.get_position() < file.get_length():
+		var line = file.get_line().strip_edges()
+
+		if line.is_empty() or line.begins_with("#"):
+			continue
+		if "=" in line:
+			var parts = line.split("=", false, 1)
+			if parts.size() == 2:
+				var key = parts[0].strip_edges()
+				var value = parts[1].strip_edges()
+				if value.begins_with('"') and value.ends_with('"'):
+					value = value.substr(1, value.length() - 2)
+				_config_data[key] = value
+				#print("Loaded: ", key, " = ", value)  # Debug output
+
+	file.close()
+	print("Successfully loaded ", _config_data.size(), " configuration entries")
+	return true
